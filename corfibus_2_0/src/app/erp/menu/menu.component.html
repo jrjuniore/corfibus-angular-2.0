@@ -1,0 +1,40 @@
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer class="rounded-0 shadow-sm" #drawer position-fixed mode="over">
+    <div class="p-2 h-100 jrrb-bg-color-b4 d-flex flex-column">
+      <span class="{{menu_p2()}}">
+        <menu-administracao />
+      </span>
+      <hr />
+      <span class="{{menu_p2()}}">
+        <menu-veiculos />
+      </span>
+      <hr />
+      <span class="{{menu_p2()}}">
+        <menu-vendas />
+      </span>
+      <hr />
+      <span class="{{menu_p2()}}">
+        <menu-financeiro />
+      </span>
+    </div>
+  </mat-drawer>
+
+  <div class="align-content-center jrrb-bg-color-snow p-2 sty_202411122321">
+    junior coelho
+  </div>
+  <div class="p-2 d-flex justify-content-between jrrb-color-snow jrrb-bg-color-b">
+    <a type="button" mat-button (click)="drawer.toggle()">
+      <i class="fa-solid fa-bars fa-lg"></i>
+    </a>
+  </div>
+
+  <main class="p-3 sty_2024111121628">
+    <div>
+      <ng-container>
+        <ng-content></ng-content>
+      </ng-container>
+    </div>
+  </main>
+
+
+</mat-drawer-container>

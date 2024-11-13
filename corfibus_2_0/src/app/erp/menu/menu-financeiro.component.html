@@ -1,0 +1,9 @@
+<jrrb-button [isLink]="true" [iconClassFa]="'coins fa-sm'" [matMenuTriggerFor]="financeiro" [caption]="'Financeiro'"/>
+
+<mat-menu #financeiro="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="tabelas">Tabelas</button>
+</mat-menu>
+
+<mat-menu #tabelas="matMenu">
+  <button mat-menu-item>Tipos Despesas</button>
+</mat-menu>

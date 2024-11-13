@@ -1,0 +1,19 @@
+<jrrb-button [isLink]="true" [iconClassFa]="'dollar-sign fa-sm'" [matMenuTriggerFor]="vendas" [caption]="'Vendas'"/>
+
+<mat-menu #vendas="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="tabelas">Tabelas</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros">Cadatros</button>
+</mat-menu>
+
+<mat-menu #tabelas="matMenu">
+  <button mat-menu-item>Serviços</button>
+  <button mat-menu-item>Motivos de Cancelamentos</button>
+</mat-menu>
+
+<mat-menu #cadastros="matMenu">
+  <button mat-menu-item>Valores KM</button>
+  <button mat-menu-item>Valores Serviços</button>
+  <button mat-menu-item>Valores Períodos</button>
+  <button mat-menu-item>Vendas Eventuais</button>
+</mat-menu>
+

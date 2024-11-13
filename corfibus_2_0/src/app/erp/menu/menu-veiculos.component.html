@@ -1,0 +1,20 @@
+<jrrb-button [isLink]="true" [iconClassFa]="'bus fa-sm'" [matMenuTriggerFor]="veiculos" [caption]="'Veículos'"/>
+
+<mat-menu #veiculos="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="tabelas">Tabelas</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros">Cadatros</button>
+</mat-menu>
+
+<mat-menu #tabelas="matMenu">
+  <button mat-menu-item>Combustíveis</button>
+  <button mat-menu-item>Categorias</button>
+  <button mat-menu-item>Chassis</button>
+  <button mat-menu-item>Carrocerias</button>
+  <button mat-menu-item>Marcas</button>
+  <button mat-menu-item>Modelos</button>
+</mat-menu>
+
+<mat-menu #cadastros="matMenu">
+  <button mat-menu-item>Motoristas</button>
+  <button mat-menu-item>Veículos</button>
+</mat-menu>
