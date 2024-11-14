@@ -1,0 +1,21 @@
+<div class="align-items-center d-flex" [ngClass]="[(tipoErro >= 0 ? 'jrrb-errors' : '')]">
+
+  @if(tipoErro == 0){
+    <mat-error>
+      <small class="jrrb-font-12px jrrb-font-normal text-danger">{{IsRequired()}}</small>
+    </mat-error>
+  }
+
+  @if(tipoErro == 1){
+    <mat-error>
+      <small class="jrrb-font-12px jrrb-font-normal text-danger">{{MessagePersonalError()}}</small>
+    </mat-error>
+  }
+
+  @if(tipoErro == 2){
+    <mat-error>
+      <small class="jrrb-font-12px jrrb-font-normal text-danger">{{IsErrorGeneric()}}</small>
+    </mat-error>
+  }
+
+</div>

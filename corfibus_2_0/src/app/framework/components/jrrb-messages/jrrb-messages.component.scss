@@ -1,0 +1,29 @@
+.form-message-position {
+  position: absolute;
+  right: 2.5%;
+  height: auto;
+  max-width: 50%;
+  max-height: 98%;
+  top: 1%;
+  padding-right: 2px;
+  padding-top: 8px;
+  border-radius: 4px;
+  z-index: 7777777;
+}
+
+.form-message-fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear 300ms, opacity 500ms;
+}
+
+.form-message-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s linear 0s, opacity 500ms;
+}
+
+.form-message-overflow-y {
+  overflow-y: auto;
+  max-height: calc(100vh - 20px);
+}

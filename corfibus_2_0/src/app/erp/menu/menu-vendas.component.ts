@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { JrrbButtonComponent } from '../../framework/components/jrrb-button.component';
+import { JrrbButtonComponent } from '../../framework/components/jrrb-button/jrrb-button.component';
+import { CoreFrameworkService } from '../../core/core-framework.service';
 
 @Component({
   selector: 'menu-vendas',
@@ -9,5 +10,7 @@ import { JrrbButtonComponent } from '../../framework/components/jrrb-button.comp
   templateUrl: './menu-vendas.component.html'
 })
 export class MenuVendasComponent {
+
+  protected coreFrameWork: CoreFrameworkService = inject(CoreFrameworkService);
 
 }

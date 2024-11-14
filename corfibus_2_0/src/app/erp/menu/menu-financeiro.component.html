@@ -1,9 +1,9 @@
 <jrrb-button [isLink]="true" [iconClassFa]="'coins fa-sm'" [matMenuTriggerFor]="financeiro" [caption]="'Financeiro'"/>
 
 <mat-menu #financeiro="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="tabelas">Tabelas</button>
+  <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
 </mat-menu>
 
 <mat-menu #tabelas="matMenu">
-  <button mat-menu-item>Tipos Despesas</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Tipos Despesas</button>
 </mat-menu>

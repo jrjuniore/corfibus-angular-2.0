@@ -1,0 +1,23 @@
+<jrrb-button [isLink]="true" [iconClassFa]="'file-pdf fa-sm'" [matMenuTriggerFor]="relatorios" [caption]="'Relatórios'"/>
+<mat-menu #relatorios="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="vendasEventuais"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Vendas Eventuais</button>
+  <button mat-menu-item [matMenuTriggerFor]="Administrativo"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Diário</button>
+  <button mat-menu-item [matMenuTriggerFor]="financeiro"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>financeiro</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Tabelas</button>
+</mat-menu>
+
+<mat-menu #vendasEventuais="matMenu">
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Multas</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Vendas Realizadas</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Orçamentos Perdidos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Produção Hodômetro</button>
+</mat-menu>
+
+<mat-menu #Administrativo="matMenu">
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Vencimento CNH</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Licenciamento</button>
+</mat-menu>
+
+<mat-menu #financeiro="matMenu">
+  <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Vendas Eventuais</button>
+</mat-menu>

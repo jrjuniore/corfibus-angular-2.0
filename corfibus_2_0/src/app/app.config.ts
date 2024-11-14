@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideExperimentalZonelessChangeDetection, LOCALE_ID } from '@angular/core';
 import { Location } from '@angular/common';
 import { provideRouter } from '@angular/router';
-
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -15,6 +15,7 @@ registerLocaleData(localePt, 'pt');
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(), provideRouter(routes), Location, provideClientHydration(), provideAnimationsAsync(),
+    provideHttpClient(), provideHttpClient(withFetch()),
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {
         hasBackdrop: true, autoFocus: true, disableClose: true,

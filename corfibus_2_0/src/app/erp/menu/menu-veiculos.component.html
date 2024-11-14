@@ -1,20 +1,20 @@
 <jrrb-button [isLink]="true" [iconClassFa]="'bus fa-sm'" [matMenuTriggerFor]="veiculos" [caption]="'Veículos'"/>
 
 <mat-menu #veiculos="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="tabelas">Tabelas</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros">Cadatros</button>
+  <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
 </mat-menu>
 
 <mat-menu #tabelas="matMenu">
-  <button mat-menu-item>Combustíveis</button>
-  <button mat-menu-item>Categorias</button>
-  <button mat-menu-item>Chassis</button>
-  <button mat-menu-item>Carrocerias</button>
-  <button mat-menu-item>Marcas</button>
-  <button mat-menu-item>Modelos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Combustíveis</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Categorias</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Chassis</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Carrocerias</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Marcas</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Modelos</button>
 </mat-menu>
 
 <mat-menu #cadastros="matMenu">
-  <button mat-menu-item>Motoristas</button>
-  <button mat-menu-item>Veículos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Motoristas</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Veículos</button>
 </mat-menu>

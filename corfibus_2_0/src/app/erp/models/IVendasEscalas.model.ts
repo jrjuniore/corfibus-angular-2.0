@@ -1,0 +1,20 @@
+export interface IVendasEscalasModel {
+  id_Venda_Escala: string,
+  id_Venda: string,
+  id_Entidade: string,
+  id_Veiculo: string,
+  observacoes: string,
+  nome_Motorista: string,
+  nome_Categoria: string,
+  nome_Veiculo: string,
+  prefixo: string,
+  numero_Proposta: number, 
+  user_Create: string,
+  user_Alter: string,
+  date_Create: string,
+  date_Create_Str: string,
+  date_Alter: string,
+  date_Alter_Str: string,
+  ativo: boolean,
+  ativoStr: string
+}

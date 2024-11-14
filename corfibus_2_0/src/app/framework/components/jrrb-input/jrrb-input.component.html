@@ -1,0 +1,15 @@
+<mat-form-field class="w-100">
+  <mat-label *ngIf="!isCaptionIsPlaceHolder" id={{idLabel}}>{{caption}}</mat-label>
+  <input id={{idInput}} matInput [formControl]="fieldControl"
+    type="{{isPassword ? 'password' : isSearch ? 'search' : 'text'}}" [dropSpecialCharacters]="false" autocomplete="off"
+    [mask]="maskJrrb" (keyup)="ToKeyUp($event)" (change)="ToChange()"
+    placeholder="{{isCaptionIsPlaceHolder ? caption : ''}}">
+  <button class="border-0 bg-transparent" *ngIf="showButtonEye" matSuffix mat-icon-button
+    (click)="isPassword = !isPassword">
+    <a ngClass="text-secondary fw-bold fa fa-lg fa-eye{{!isPassword ? '-slash' : ''}}"></a>
+  </button>
+  <button class="border-0 bg-transparent" *ngIf="showAccessTable" matSuffix mat-icon-button (click)="ToAccessTable()">
+    <a ngClass="text-secondary fw-bold fa fa-sm fa-table"></a>
+  </button>
+</mat-form-field>
+<jrrb-errors [errors]="fieldControl.errors" [caption]="caption"></jrrb-errors>

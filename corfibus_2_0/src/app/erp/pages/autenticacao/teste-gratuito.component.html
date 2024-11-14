@@ -1,0 +1,34 @@
+<div class="container container-fluid">
+  <div class="{{controller.coreFrameWork.classRow()}}">
+    <div class="{{controller.coreFrameWork.classCol12()}}">
+      <jrrb-input [caption]="'E-mail'" [fieldControl]="controller.form.controls['Email']" />
+    </div>
+  </div>
+  <div class="{{controller.coreFrameWork.classRow()}}">
+    <div class="{{controller.coreFrameWork.classCol12()}}">
+      <jrrb-input [caption]="'Razão Social'" [fieldControl]="controller.form.controls['Razao_Social']" />
+    </div>
+  </div>
+  <div class="{{controller.coreFrameWork.classRow()}}">
+    <div class="{{controller.coreFrameWork.classCol4()}}">
+      <jrrb-input [caption]="'CNPJ'" [fieldControl]="controller.form.controls['Cpf_Cnpj']" />
+    </div>
+    <div class="{{controller.coreFrameWork.classCol4()}}">
+      <jrrb-input [caption]="'Nome Fantasia'" [fieldControl]="controller.form.controls['Nome_Fantasia']" />
+    </div>
+    <div class="{{controller.coreFrameWork.classCol4()}}">
+      <jrrb-input [caption]="'WhatsApp'" [fieldControl]="controller.form.controls['WhatsApp']"
+        [maskJrrb]="controller.coreFrameWork.maskPhone()" />
+    </div>
+  </div>
+</div>
+<div>
+  <label class="text-center py-3 jrrb-color-a2 jrrb-bg-color-a">{{casoDuvida()}}</label>
+</div>
+
+<div class="p-2 jrrb-bg-color-a3 text-center">
+  <jrrb-button [isStroked]="true" [classButton]="'bg-success jrrb-color-snow'" [caption]="'CONCLUIR CADASTRO'"
+    (onClick)="EnviarEmail()" />
+  <jrrb-button [jrrbIdButton]="controller.idButtonExit" [isStroked]="true" [classButton]="'bg-secondary jrrb-color-snow'" [caption]="'CANCELAR'"
+    (onClick)="ToExit()" />
+</div>

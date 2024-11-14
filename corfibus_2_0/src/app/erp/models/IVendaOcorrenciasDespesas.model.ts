@@ -1,0 +1,20 @@
+export interface IVendasOcorrenciasDespesasModel {
+  id_Venda_Ocorrencia_Despesa: string,
+  id_Venda: string,
+  observacao: string,
+  id_Tipo_Despesa: string,
+  nome_Tipo_Despesa: string,
+  data_Ocorrencia: string,
+  data_Ocorrencia_Str: string,
+  numero: string,
+  valor: string,
+  valor_Str: string,
+  user_Create: string,
+  user_Alter: string,
+  date_Create: string,
+  date_Alter: string,
+  ativo: boolean,
+  ativoStr: string,
+  date_Create_Str: string,
+  date_Alter_Str: string
+}

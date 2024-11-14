@@ -1,0 +1,107 @@
+<div class="d-flex align-items-baseline w-100">
+  <div class="w-100">
+
+    <ng-container *ngIf="!hasRecords">
+      <mat-label class="jrrb-font-weight-600 text-primary">{{caption}}</mat-label>
+      <mat-spinner></mat-spinner>
+    </ng-container>
+
+    <ng-container *ngIf="!isMultiple">
+
+      <ng-container *ngIf="hasRecords">
+        <mat-form-field class="w-100" color="primary">
+          <mat-label id="{{idLabelCaption}}" class="jrrb-font-weight-600" for="idSelect">{{caption}}</mat-label>
+          <mat-select #sl2 id="{{idSelect}}" class="jrrb-font-14px" [formControl]="fieldControl"
+            (selectionChange)="ToChange()">
+            <div>
+              <div class="d-flex mat-elevation-z1 jrrb-bg-color-a4">
+
+                <ng-container *ngIf="hasAccessTable">
+                  <jrrb-button [classButton]="'fs-6'" (onClick)="ToClickTableAcess(); sl2.close()" [isIcon]="true"
+                    [toolTip]="'Acessar'" [iconClassFa]="'table text-success'" />
+                </ng-container>
+
+                <ng-container *ngIf="showBtnEraser && !fieldIsRequired">
+                  <jrrb-button [classButton]="'fs-6'" (onClick)="ToSetClear(); sl2.close()" [isIcon]="true"
+                    [toolTip]="'Apagar'" [iconClassFa]="'eraser text-danger'" />
+                </ng-container>
+
+                <ng-container *ngIf="hasAccessTable">
+                  <jrrb-button [isIcon]="true" [classButton]="'fs-6'" [toolTip]="'Atualizar'"
+                    [iconClassFa]="'rotate text-info'" (onClick)="ToRefresh()" />
+                </ng-container>
+
+              </div>
+              <div>
+                <mat-option class="jrrb-font-14px overflow-hidden" *ngFor="let item of jrrbComboList"
+                  [value]="item.value">
+                  {{item.caption}}
+                </mat-option>
+              </div>
+            </div>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+    </ng-container>
+    <ng-container *ngIf="isMultiple">
+
+      <ng-container *ngIf="hasRecords">
+        <mat-form-field class="w-100" color="primary">
+          <mat-label id="{{idLabelCaption}}" class="jrrb-font-weight-600" for="idSelect">{{caption}}</mat-label>
+          <mat-select #sl id="{{idSelect}}" class="jrrb-font-14px" multiple [formControl]="fieldControl"
+            (selectionChange)="ToChangeMultiple()">
+            <mat-select-trigger>
+              {{captionMultiple || ''}}
+
+              <ng-container *ngIf="(fieldControl.value?.length || 0) > 3">
+                <span>
+                  (+{{(fieldControl.value?.length || 0) - 3}})
+                </span>
+              </ng-container>
+
+            </mat-select-trigger>
+            <div>
+              <div class="d-flex mat-elevation-z1 jrrb-bg-color-a4">
+                <ng-container *ngIf="hasAccessTable">
+                  <jrrb-button [classButton]="'fs-6'" (onClick)="ToClickTableAcess(); sl.close()" [isIcon]="true"
+                    [toolTip]="'Acessar'" [iconClassFa]="'table text-success'" />
+                </ng-container>
+
+                <ng-container *ngIf="hasAccessTable">
+                  <jrrb-button [isIcon]="true" [classButton]="'fs-6'" [toolTip]="'Atualizar'"
+                    [iconClassFa]="'rotate text-info'" (onClick)="ToRefresh()" />
+                </ng-container>
+
+                <ng-container *ngIf="showBtnChecAll">
+                  <jrrb-button [isIcon]="true" [iconClassFa]="'square-check text-secondary'" [toolTip]="'Marcar todos'"
+                    (onClick)="ToCheckUnCheckAll(true); sl.close()" />
+                </ng-container>
+
+                <ng-container *ngIf="showBtnChecAll">
+                  <jrrb-button [isIcon]="true" [iconClassFa]="'square text-secondary'" [toolTip]="'Desmarcar todos'"
+                    (onClick)="ToCheckUnCheckAll(false); sl.close()" />
+                </ng-container>
+
+              </div>
+              <div>
+                <mat-option class="jrrb-font-14px overflow-hidden" *ngFor="let item of jrrbComboList" [value]="item">
+                  {{item.caption}}
+                </mat-option>
+              </div>
+            </div>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+    </ng-container>
+
+    <ng-container *ngIf="hasRecords">
+      <jrrb-errors [errors]="fieldControl.errors" [caption]="caption"></jrrb-errors>
+    </ng-container>
+    
+  </div>
+</div>
+<a hidden id="{{idClickRefresh}}" (click)="ToRefresh()"></a>
+<a hidden id="{{idClickClear}}" (click)="ToClearForce()"></a>
+<a hidden id="{{idClickSetFirstValue}}" (click)="ToSetFirstValue()">TESTE</a>

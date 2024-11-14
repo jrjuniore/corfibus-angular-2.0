@@ -1,31 +1,31 @@
 <jrrb-button [isLink]="true" [iconClassFa]="'table fa-sm'" [matMenuTriggerFor]="administracao" [caption]="'Administração'"/>
 <mat-menu #administracao="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="gerais">Gerais</button>
-  <button mat-menu-item [matMenuTriggerFor]="diario">Diário</button>
-  <button mat-menu-item [matMenuTriggerFor]="cep">CEP</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros">Cadastros</button>
+  <button mat-menu-item [matMenuTriggerFor]="gerais"><a class="{{this.coreFrameWork.faTable()}}"></a>Gerais</button>
+  <button mat-menu-item [matMenuTriggerFor]="diario"><a class="{{this.coreFrameWork.faTable()}}"></a>Diário</button>
+  <button mat-menu-item [matMenuTriggerFor]="cep"><a class="{{this.coreFrameWork.faTable()}}"></a>CEP</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a class="{{this.coreFrameWork.faDatabase()}}"></a>Cadastros</button>
 </mat-menu>
 
 <mat-menu #gerais="matMenu">
-  <button mat-menu-item>Tipos Documentos</button>
-  <button mat-menu-item>Tipos Contatos</button>
-  <button mat-menu-item>Bancos</button>
-  <button mat-menu-item>Cores</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Tipos Documentos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Tipos Contatos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Bancos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Cores</button>
 </mat-menu>
 
 <mat-menu #diario="matMenu">
-  <button mat-menu-item>Assuntos</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Assuntos</button>
 </mat-menu>
 
 <mat-menu #cep="matMenu">
-  <button mat-menu-item>Tipos Endereços</button>
-  <button mat-menu-item>Tipos Logradouros</button>
-  <button mat-menu-item>Estados</button>
-  <button mat-menu-item>Cidades</button>
-  <button mat-menu-item>CEP</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Tipos Endereços</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Tipos Logradouros</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Estados</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Cidades</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>CEP</button>
 </mat-menu>
 
 <mat-menu #cadastros="matMenu">
-  <button mat-menu-item>Clientes</button>
-  <button mat-menu-item>Fornecedores</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Clientes</button>
+  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Fornecedores</button>
 </mat-menu>

@@ -1,5 +1,23 @@
 <mat-drawer-container [hasBackdrop]="true">
   <mat-drawer class="rounded-0 shadow-sm" #drawer position-fixed mode="over">
+    <div class="p-2 jrrb-bg-color-b4">
+      <div class="p-2 border rounded jrrb-bg-color-snow">
+        <div class="{{this.coreFramework.classRowDefault()}}">
+          <div class="p-0 text-center {{this.coreFramework.marginResponsiva()}}2 {{this.coreFramework.classCol6ATop()}}">
+            <picture>
+              <source srcset="/assets/images/common/emptyPhoto.png" type="image/png">
+              <img class="img-fluid img-thumbnail sty_202513111010" src="/assets/images/common/emptyPhoto.png">
+            </picture>
+          </div>
+          <div class="p-0 {{this.coreFramework.classCol6()}}">
+            <div class="d-flex flex-column text-center align-content-end">
+              <span class="jrrb-bg-color-b rounded border jrrb-color-snow jrrb-font-14px py-1">Junior coelho</span>
+              <span class="jrrb-font-alkatra jrrb-color-a2">Administrador</span>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="p-2 h-100 jrrb-bg-color-b4 d-flex flex-column">
       <span class="{{menu_p2()}}">
         <menu-administracao />
@@ -15,6 +33,14 @@
       <hr />
       <span class="{{menu_p2()}}">
         <menu-financeiro />
+      </span>
+      <hr />
+      <span class="{{menu_p2()}}">
+        <menu-relatorios />
+      </span>
+      <hr />
+      <span class="{{menu_p2()}}">
+        <menu-sistema />
       </span>
     </div>
   </mat-drawer>
