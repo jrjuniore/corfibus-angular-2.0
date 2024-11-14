@@ -14,6 +14,8 @@ import { LibraryUtilsClass } from "../../../share/class-utils/library-utils.clas
 import { CoreFrameworkService } from "../../../core/core-framework.service";
 import { environment } from "../../../../environments/environment";
 import { TesteGratuitoComponent } from "../../pages/autenticacao/teste-gratuito.component";
+import { AutenticacaoTrocaSenhaComponent } from "../../pages/autenticacao/autenticacao-troca-senha.component";
+import { ConstUtilsClass } from "../../../share/class-utils/const-utils.class";
 
 export class AutenticacaoController {
 
@@ -32,7 +34,7 @@ export class AutenticacaoController {
     empresa: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
     senha: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]]
-  });;
+  });
 
   public Autenticar(pForm: FormGroup, pTrocarSenha?: boolean, pAbrirTelaTrocaSenha?: boolean): void {
     if (Validation.FormIsValidMessage(pForm, this.titleForm())) {
@@ -58,43 +60,39 @@ export class AutenticacaoController {
             this.browser.LoadOk();
             MessageUtilsClass.ShowAlerts([MessageUtilsClass.NewMessageError(_messageFinal)], this.titleForm(), 7000);
 
-            // TODO
-            // if (HelperUtilsClass.StringEqual(_messageFinal, this.msgUsuarioAguardando))
-            //   this.TrocarSenha(loginModel.empresa, loginModel.usuario);
+            if (HelperUtilsClass.StringEqual(_messageFinal, this.msgUsuarioAguardando))
+              this.TrocarSenha(loginModel.empresa, loginModel.usuario);
 
             return of();
           })
         )
         .subscribe((data_success: any) => {
-          // TODO
-          // if ((data_success.errors) && (
-          //   HelperUtilsClass.StringEqual(data_success.errors.Autenticação[0], this.msgUsuarioAguardando)))
-          //   this.TrocarSenha(loginModel.empresa, loginModel.usuario);
-          // else
-          if (MessageUtilsClass.NoMessagesFromBackEnd(data_success, this.titleForm()))
-            if (this.EmpresaOk(data_success.empresa)) {
+          if ((data_success.errors) && (
+            HelperUtilsClass.StringEqual(data_success.errors.Autenticação[0], this.msgUsuarioAguardando)))
+            this.TrocarSenha(loginModel.empresa, loginModel.usuario);
+          else
+            if (MessageUtilsClass.NoMessagesFromBackEnd(data_success, this.titleForm()))
+              if (this.EmpresaOk(data_success.empresa)) {
+                if (pAbrirTelaTrocaSenha)
+                  this.TrocarSenha(loginModel.empresa, loginModel.usuario);
+                else {
+                  let msgUsuAut: string = 'Usuário autenticado!';
 
-              // TODO
-              // if (pAbrirTelaTrocaSenha)
-              //   this.TrocarSenha(loginModel.empresa, loginModel.usuario);
-              // else {
-              let msgUsuAut: string = 'Usuário autenticado!';
+                  environment.userErp.iInfoLogin = data_success.login;
+                  environment.userErp.iInfoLogin.token = data_success.tokenJwt;
+                  environment.userErp.iInfoLogin.empresa = loginModel.empresa;
+                  environment.userErp.userConnected = true;
 
-              environment.userErp.iInfoLogin = data_success.login;
-              environment.userErp.iInfoLogin.token = data_success.tokenJwt;
-              environment.userErp.iInfoLogin.empresa = loginModel.empresa;
-              environment.userErp.userConnected = true;
+                  this.GetAccessUser(data_success.login.is_adm, data_success.login.id_usuario_acesso);
 
-              this.GetAccessUser(data_success.login.is_adm, data_success.login.id_usuario_acesso);
+                  this.lstMessage.push(MessageUtilsClass.NewMessageSuccess(msgUsuAut));
+                  MessageUtilsClass.ShowAlerts(this.lstMessage, this.titleForm());
 
-              this.lstMessage.push(MessageUtilsClass.NewMessageSuccess(msgUsuAut));
-              MessageUtilsClass.ShowAlerts(this.lstMessage, this.titleForm());
-
-              //Exibindo algumas informações do usário na tela.  Exemplo: imagem
-              //TODO - criar observable
-              // LibraryUtilsClass.ToClick('web202311071636');
-              // }
-            }
+                  //Exibindo algumas informações do usário na tela.  Exemplo: imagem
+                  //TODO - criar observable
+                  // LibraryUtilsClass.ToClick('web202311071636');
+                }
+              }
         });
     }
   }
@@ -139,22 +137,15 @@ export class AutenticacaoController {
     //   LibraryUtilsClass.ToClick('web202209080831');
   }
 
-  // TODO
-  // private TrocarSenha(pEmpresa: string, pUsuario: string): void {
-  //   const dialogRef =
-  //     this.dialogBase.open(
-  //       AutenticacaoTrocaSenhaComponent,
-  //       {
-  //         width: ConstUtilsClass.width_sm(),
-  //         data: { empresa: pEmpresa, usuario: pUsuario }
-  //       }
-  //     );
-
-  //   dialogRef.afterClosed().subscribe((recordSenha: any) => {
-  //     if (!HelperUtilsClass.ObjectIsEmpty(recordSenha))
-  //       this.Autenticar(recordSenha, true);
-  //   });
-  // }
+  private TrocarSenha(pEmpresa: string, pUsuario: string): void {
+    this.coreHttp.DialogOpenDataAfterClose(
+      AutenticacaoTrocaSenhaComponent, ConstUtilsClass.width_sm(),
+      { empresa: pEmpresa, usuario: pUsuario }
+    ).then((recordSenha: any) => {
+      if (!HelperUtilsClass.ObjectIsEmpty(recordSenha))
+        this.Autenticar(recordSenha, true);
+    });
+  }
 
   private EmpresaOk(pData: any): boolean {
     let result: boolean = true;

@@ -1,0 +1,21 @@
+<ng-container>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="mb-4 jrrb-color-a2 fs-3 fw-bold  text-uppercase ">
+        {{cntrl.titleFormTrocaSenha()}}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <jrrb-input caption="Nova Senha" [fieldControl]="form!.controls['novaSenha']" [isPassword]="true"
+        (onKeyUp)="TrocarSenha()" />
+      <jrrb-input caption="Confirme Nova Senha" [fieldControl]="form!.controls['confirmacaoSenha']" [isPassword]="true"
+        (onKeyUp)="TrocarSenha()" />
+    </mat-card-content>
+    <mat-card-actions class="mt-2">
+      <jrrb-button [toolTip]="'Trocar senha e autenticar'" [isStroked]="true" [classButton]="'bg-success jrrb-color-snow'"
+        [caption]="'TROCAR'" (onClick)="TrocarSenha()" />
+      <jrrb-button [toolTip]="'Cancelar troca de senha'" [isStroked]="true" [classButton]="'bg-danger jrrb-color-snow'"
+        [caption]="'CANCELAR'" (onClick)="CancelarTrocaSenha()" />
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
