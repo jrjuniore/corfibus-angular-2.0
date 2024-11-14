@@ -7,14 +7,17 @@ import { ErpAccess } from '../share/class-utils/erp-access.class';
 import { LibraryUtilsClass } from '../share/class-utils/library-utils.class';
 import { environment } from '../../environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CoreRouterService {
 
+  //Quando esse service for instanciado, outros injects podem também serem usados
   public menuAcionado = signal('');
+  public coreErp: CoreErpService = inject(CoreErpService);
+  public coreBrowser: CoreBrowserService = inject(CoreBrowserService);
+  public router: Router = inject(Router);
 
-  private router: Router = inject(Router);
-  private coreErp: CoreErpService = inject(CoreErpService);
-  private coreBrowser: CoreBrowserService = inject(CoreBrowserService);
   private nameMenuAcionadoStorage = signal('07112022071278');
 
   public ToMainPageLogin() {
@@ -110,7 +113,7 @@ export class CoreRouterService {
 
   private SaveSessionStorage() {
     this.coreBrowser.SetSessionItem(this.nameMenuAcionadoStorage(), LibraryUtilsClass.Encriptar(JSON.stringify({
-      menuAcionado: this.menuAcionado
+      menuAcionado: this.menuAcionado()
     })));
   }
 

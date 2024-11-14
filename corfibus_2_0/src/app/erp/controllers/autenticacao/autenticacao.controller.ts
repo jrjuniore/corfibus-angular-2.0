@@ -16,6 +16,7 @@ import { environment } from "../../../../environments/environment";
 import { TesteGratuitoComponent } from "../../pages/autenticacao/teste-gratuito.component";
 import { AutenticacaoTrocaSenhaComponent } from "../../pages/autenticacao/autenticacao-troca-senha.component";
 import { ConstUtilsClass } from "../../../share/class-utils/const-utils.class";
+import { CoreObservableService } from "../../../core/core-observable.service";
 
 export class AutenticacaoController {
 
@@ -29,6 +30,7 @@ export class AutenticacaoController {
   private formBuilder: FormBuilder = inject(FormBuilder);
   private lstMessage: IMessage[] = [];
   private coreHttp: CoreHttpService = inject(CoreHttpService);
+  private coreObservable: CoreObservableService = inject(CoreObservableService);
 
   public form: FormGroup = this.formBuilder.group({
     empresa: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
@@ -126,15 +128,10 @@ export class AutenticacaoController {
       this.coreHttp.PostApiAuth(ApiRouteUtilsClass.sistema.acessos.usuarios.ToGetAccess(pIdUsuario))
         .subscribe((data_success: any) => {
           environment.userErp.userAccess = LibraryUtilsClass.ObjectToList(data_success, 'id_Permissao');
-
-          //Dando ok dizendo que o login foi executado e assim, exibindo o menu   
-          // TODO - Observable
-          // LibraryUtilsClass.ToClick('web202209080831');
+          this.coreObservable.SetUsuarioLogado(true);
         });
-    // // TODO - Observable
-    // // LibraryUtilsClass.ToClick('web202209080831');
-    // else
-    //   LibraryUtilsClass.ToClick('web202209080831');
+    else
+      this.coreObservable.SetUsuarioLogado(true);
   }
 
   private TrocarSenha(pEmpresa: string, pUsuario: string): void {

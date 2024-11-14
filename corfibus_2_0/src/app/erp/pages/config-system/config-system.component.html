@@ -1,0 +1,54 @@
+<jrrb-form-header [titleHeader]=controller.configUtils.titleForm />
+<mat-tab-group mat-align-tabs="center" mat-stretch-tabs="false">
+  
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span class={{controller.configUtils.classCursorPointer}}>
+        <i class={{controller.configUtils.classFaGerais}}></i>
+        {{controller.configUtils.tabCaptionGerais}}
+      </span>
+    </ng-template>
+    <config-system-gerais [controller]="controller.configSystemGerais" />
+  </mat-tab>
+  
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span class={{controller.configUtils.classCursorPointer}}>
+        <i class={{controller.configUtils.classFaEmail}}></i>
+        {{controller.configUtils.tabCaptionEmail}}
+      </span>
+    </ng-template>
+    <config-system-emails [controller]="controller.configSystemEmails" />
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span class={{controller.configUtils.classCursorPointer}}>
+        <i class={{controller.configUtils.classFaValidacoes}}></i>
+        {{controller.configUtils.tabCaptionValidacoes}}
+      </span>
+    </ng-template>
+    <config-system-validacoes [controller]="controller.configSystemValidacoes" />
+  </mat-tab>
+  
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span class={{controller.configUtils.classCursorPointer}}>
+        <i class={{controller.configUtils.classFaPerfil}}></i>
+        {{controller.configUtils.tabCaptionPerfil}}
+      </span>
+    </ng-template>
+    <config-system-perfil [controller]="controller.ConfigSystemPerfil" />
+  </mat-tab>
+  
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span class={{controller.configUtils.classCursorPointer}}>
+        <i class={{controller.configUtils.classFaContrato}}></i>
+        {{controller.configUtils.tabCaptionContrato}}
+      </span>
+    </ng-template>
+    <config-system-contrato [controller]="controller.ConfigSystemContrato" />
+  </mat-tab>
+  
+</mat-tab-group>

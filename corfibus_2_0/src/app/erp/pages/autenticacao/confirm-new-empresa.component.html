@@ -1,18 +1,18 @@
 <section class="container container-fluid text-center h-100 d-flex">
-  <ng-container *ngIf="!contaJaFoiValidada">
-    <div class="{{controller.classRowCenter}} align-self-center">
-      <div class="{{controller.classCol7}} card p-3 shadow-sm">
-        <h3 class="jrrb-bg-color-a jrrb-color-a2 p-2 rounded mb-4">Parabéns!</h3>
-        <h4 class="jrrb-color-a2">Seu email foi confirmado!</h4>
-        <h5 class="jrrb-color-a2">Enviaremos um email com as credenciais iniciais da sua conta</h5>
-      </div>
+  @if(!contaJaFoiValidada()){
+  <div class="{{controller.coreFrameWork.classRowCenter()}} align-self-center">
+    <div class="{{controller.coreFrameWork.classCol7()}} card p-3 shadow-sm">
+      <h3 class="jrrb-bg-color-a jrrb-color-a2 p-2 rounded mb-4">Parabéns!</h3>
+      <h4 class="jrrb-color-a2">Seu email foi confirmado!</h4>
+      <h6 class="jrrb-color-a2">Enviaremos um email com as credenciais iniciais da sua conta</h6>
     </div>
-  </ng-container>
-  <ng-container *ngIf="contaJaFoiValidada">
-    <div class="{{controller.classRowCenter}} align-self-center">
-      <div class="{{controller.classCol7}} card p-3 shadow-sm">
-        <h3 class="jrrb-bg-color-b jrrb-color-a3 p-2 rounded">Essa conta já foi confirmada!</h3>
-      </div>
+  </div>
+  }
+  @else {
+  <div class="{{controller.coreFrameWork.classRowCenter()}} align-self-center">
+    <div class="{{controller.coreFrameWork.classCol7()}} card p-3 shadow-sm">
+      <h3 class="jrrb-bg-color-b jrrb-color-a3 p-2 rounded">Essa conta já foi confirmada!</h3>
     </div>
-  </ng-container>
+  </div>
+  }
 </section>

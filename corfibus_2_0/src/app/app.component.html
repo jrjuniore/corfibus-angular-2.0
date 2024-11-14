@@ -10,6 +10,12 @@
   </div>
 </div>
 <jrrb-messages-generic></jrrb-messages-generic>
+
+@if(userConnected())
+{
 <menu>
   <router-outlet />
 </menu>
+}@else {
+<router-outlet />
+}

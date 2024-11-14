@@ -3,17 +3,19 @@
     <div class="p-2 jrrb-bg-color-b4">
       <div class="p-2 border rounded jrrb-bg-color-snow">
         <div class="{{this.coreFramework.classRowDefault()}}">
-          <div class="p-0 text-center {{this.coreFramework.marginResponsiva()}}2 {{this.coreFramework.classCol6ATop()}}">
+          <div
+            class="p-0 text-center {{this.coreFramework.marginResponsiva()}}2 {{this.coreFramework.classCol6ATop()}}">
             <picture>
-              <source srcset="/assets/images/common/emptyPhoto.png" type="image/png">
-              <img class="img-fluid img-thumbnail sty_202513111010" src="/assets/images/common/emptyPhoto.png">
+              <source srcset={{imageFileDefault()}} type="image/png">
+              <img class="img-fluid img-thumbnail sty_202513111010" src={{imageFileDefault()}}>
             </picture>
           </div>
           <div class="p-0 {{this.coreFramework.classCol6()}}">
             <div class="d-flex flex-column text-center align-content-end">
-              <span class="jrrb-bg-color-b rounded border jrrb-color-snow jrrb-font-14px py-1">Junior coelho</span>
-              <span class="jrrb-font-alkatra jrrb-color-a2">Administrador</span>
-            </div>            
+              <span
+                class="jrrb-bg-color-b rounded border jrrb-color-snow jrrb-font-14px py-1">{{infoLoginUsuario()}}</span>
+              <span class="jrrb-font-alkatra jrrb-color-a2">{{infoLoginGrupo()}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -48,10 +50,32 @@
   <div class="align-content-center jrrb-bg-color-snow p-2 sty_202411122321">
     junior coelho
   </div>
-  <div class="p-2 d-flex justify-content-between jrrb-color-snow jrrb-bg-color-b">
-    <a type="button" mat-button (click)="drawer.toggle()">
-      <i class="fa-solid fa-bars fa-lg"></i>
-    </a>
+  <div class="p-2 px-3 d-flex justify-content-between jrrb-color-snow jrrb-bg-color-b">
+    <jrrb-button [isIcon]="true" [iconClassFa]="'bars jrrb-color-c fa-sm'" (onClick)="drawer.toggle()" />
+
+    <div>
+      <jrrb-button [matMenuTriggerFor]="menu" [isIcon]="true" [iconClassFa]="'ellipsis-vertical jrrb-color-c fa-sm'" />
+      <mat-menu #menu="matMenu">
+        <div class="container">
+          <span class="pt-1">
+            <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'Licença'"
+              [iconClassFa]="'registered jrrb-color-a2 fa-lg jrrb-color-snow'" />
+          </span>
+          <hr class="m-1">
+          <div class="d-flex flex-column">
+            <span class="pt-1">
+              <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'Nova Página'"
+                [iconClassFa]="'window-restore jrrb-color-a2 fa-lg jrrb-color-snow'" />
+            </span>
+            <span class="pt-1">
+              <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'LogOut'"
+                [iconClassFa]="'right-from-bracket jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="ToLogOut()" />
+            </span>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
+
   </div>
 
   <main class="p-3 sty_2024111121628">

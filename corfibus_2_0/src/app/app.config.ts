@@ -9,11 +9,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS, MatDialogRef } from '@angular/material/dialog';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { CoreObservableService } from './core/core-observable.service';
 registerLocaleData(localePt, 'pt');
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    CoreObservableService,
     provideExperimentalZonelessChangeDetection(), provideRouter(routes), Location, provideClientHydration(), provideAnimationsAsync(),
     provideHttpClient(), provideHttpClient(withFetch()),
     {

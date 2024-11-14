@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseController } from 'src/app/framework/main/base.controller';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ApiRouteUtilsClass } from '../../share/class-utils/api-route-utils.class';
-import { LibraryUtilsClass } from 'src/app/framework/share/class-utils/library-utils.class';
-import { HelperUtilsClass } from 'src/app/framework/share/class-utils/helper-utils.class';
-import { BrowserStorageService } from 'src/app/framework/share/services/browser-storage.service';
+import { CoreHttpService } from '../../../core/core-http.service';
+import { ApiRouteUtilsClass } from '../../../share/class-utils/api-route-utils.class';
+import { CoreFrameworkService } from '../../../core/core-framework.service';
+import { LibraryUtilsClass } from '../../../share/class-utils/library-utils.class';
+import { HelperUtilsClass } from '../../../share/class-utils/helper-utils.class';
 
-class ConfirmNewEmpresaController extends BaseController { 
+class ConfirmNewEmpresaController { 
+
+  public coreFrameWork: CoreFrameworkService = new CoreFrameworkService();
+  
+  private coreHttp: CoreHttpService = new CoreHttpService();
 
   //Enviando email à Corfidence avisando para que uma nova conta seja criada
   public ToSendWarningCorfiBus(pNome: string, pEmail: string): void {
-    this.PostApi(ApiRouteUtilsClass.share.ToSendMail(
-      this.emailFrom, this.emailToAdminCorfiBus, "Pedido de Nova Conta - " + pNome, 
+    this.coreHttp.PostApi(ApiRouteUtilsClass.share.ToSendMail(
+      this.coreFrameWork.emailFrom(), this.coreFrameWork.emailToAdminCorfiBus(), "Pedido de Nova Conta - " + pNome, 
       `<h3>Abertura de nova conta</h3>
        <div style="padding: 8px; border: solid 1px gainsboro; border-radius: 4px">
          <p><b>Cliente : </b>${pNome}</p>
@@ -20,7 +23,7 @@ class ConfirmNewEmpresaController extends BaseController {
        </div>`, [], [], 'Abrir Nova Conta - CorfiBus'
     ))
     .subscribe(() => {
-      this.browserBase.LoadOk();
+      this.coreHttp.coreBrowser.LoadOk();
     });
   }
 
@@ -28,12 +31,12 @@ class ConfirmNewEmpresaController extends BaseController {
     let params: string[] = LibraryUtilsClass.Decriptar(pParamConfirm).split("ý");
 
     return new Promise((resolve) => {
-      this.PostApi(ApiRouteUtilsClass.corfibus.ToConfirmNewEmpresa(params[0], params[1]))
+      this.coreHttp.PostApi(ApiRouteUtilsClass.corfibus.ToConfirmNewEmpresa(params[0], params[1]))
       .subscribe((result: any) => {
 
         //o resultado será, se a conta já foi validada
         resolve(!HelperUtilsClass.StringEqual(result.message, "1"));
-        this.browserBase.LoadOk();
+        this.coreHttp.coreBrowser.LoadOk();
       });
     });
   }
@@ -43,22 +46,22 @@ class ConfirmNewEmpresaController extends BaseController {
 @Component({
   selector: 'confirm-new-empresa',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './confirm-new-empresa.component.html'
 })
 export class ConfirmNewEmpresaComponent {
 
-  protected controller: ConfirmNewEmpresaController = new ConfirmNewEmpresaController(this.browser, this.http);
-  protected contaJaFoiValidada?: boolean;
+  protected controller: ConfirmNewEmpresaController = new ConfirmNewEmpresaController();
+  protected contaJaFoiValidada = signal(false);
 
-  constructor(private browser: BrowserStorageService, private http: HttpClient) {
+  constructor() {
     this.ConfirmNewAccount();
   }
 
   private ConfirmNewAccount(): void {
     this.controller.ConfirmNewAccount(window.location.href.split("?")[1].split("=")[1])
     .then((result: boolean) => {
-      this.contaJaFoiValidada = result;
+      this.contaJaFoiValidada.set(result);
 
       //Enviando email à Corfidence avisando para que uma nova conta seja criada
       if (!this.contaJaFoiValidada){

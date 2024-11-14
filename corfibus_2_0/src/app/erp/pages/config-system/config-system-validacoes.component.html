@@ -1,0 +1,17 @@
+<ng-container>
+  <div class="jrrb-table-response-modal {{controller!.configUtils.classRowCenter}}">
+    <div class={{controller!.configUtils.classCol3}}>
+      <jrrb-select [selectList]="controller!.listValidacaoCpf"
+        [fieldControl]="controller!.form.controls['idValidacaoCpf']" [caption]="controller!.captionValidacaoCpf"
+        [fieldNameCaption]="'caption'" [fieldNameValue]="'value'" />
+    </div>
+    <div class={{controller!.configUtils.classCol3}}>
+      <jrrb-select [selectList]="controller!.listValidacaoCnpj"
+        [fieldControl]="controller!.form.controls['idValidacaoCnpj']" [caption]="controller!.captionValidacaoCnpj"
+        [fieldNameCaption]="'caption'" [fieldNameValue]="'value'" />
+    </div>
+  </div>
+  <jrrb-save-cancel [positionOnBotton]="true" [isDisabled]="!controller!.form.dirty"
+    [toolTipSave]="controller!.configUtils.toolTipSave" (onSave)="controller!.ToSave()"
+    (onCancel)="controller!.ToCancel()" />
+</ng-container>

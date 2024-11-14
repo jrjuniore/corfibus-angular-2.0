@@ -1,0 +1,14 @@
+<div class="container container-fluid mt-4">
+  <jrrb-container [caption]="'Display'">
+    <div class="jrrb-table-response-modal {{controller.configUtils.classRowCenter}}">
+      <div class={{controller.configUtils.classCol6}}>
+        <jrrb-input [caption]="'Email de Orçamento'" [fieldControl]="controller.form.controls['displayEmailOrc']" />
+      </div>
+      <div class={{controller.configUtils.classCol6}}>
+        <jrrb-input [caption]="'Email de Contrato'" [fieldControl]="controller.form.controls['displayEmailContract']" />
+      </div>
+    </div>
+    <jrrb-save-cancel [positionOnBotton]="true" [isDisabled]="!controller.form.dirty" (onSave)="controller.ToSave()"
+      (onCancel)="controller.ToCancel()" [toolTipSave]="controller.configUtils.toolTipSave"></jrrb-save-cancel>
+  </jrrb-container>
+</div>

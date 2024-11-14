@@ -11,7 +11,9 @@ import { environment } from '../../environments/environment';
 })
 export class CoreErpService {
 
-  private browserSrv: CoreBrowserService = inject(CoreBrowserService);
+  //Quando esse service for instanciado, outros injects podem também serem usados
+  public browserSrv: CoreBrowserService = inject(CoreBrowserService);
+
   private nameItemSessStorage = signal('07112022071279');
   private idSetTimeOutDeslogAuto: any;
 

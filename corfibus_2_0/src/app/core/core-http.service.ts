@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { ApiRouteType } from '../share/types/apiRoute.type';
 import { catchError, Observable, of, throwError } from 'rxjs';
 import { CoreBrowserService } from './core-browser.service';
@@ -26,12 +26,14 @@ type ForInsertTrace = {
 })
 export class CoreHttpService {
 
-  private browser: CoreBrowserService = inject(CoreBrowserService);
+  //Quando esse service for instanciado, outros injects podem também serem usados
+  public coreBrowser: CoreBrowserService = inject(CoreBrowserService);
+
   private http: HttpClient = inject(HttpClient);
   private dialogBase: MatDialog = inject(MatDialog);
 
   public PostApi(pApiRoute: ApiRouteType): Observable<any> {
-    this.browser!.OnLoad();
+    this.coreBrowser!.OnLoad();
     return this.http!.post(environment.apiErp + pApiRoute.route, pApiRoute.params);
   }
 
@@ -45,7 +47,7 @@ export class CoreHttpService {
     let headers = { 'Authorization': `Bearer ${hasToken ? environment.userErp.iInfoLogin.token : ''}` };
 
     if (startStatusLoad)
-      this.browser!.OnLoad();
+      this.coreBrowser!.OnLoad();
 
     _params =
       LibraryUtilsClass.CopyObject(pApiRoute.params, _params);
@@ -76,11 +78,11 @@ export class CoreHttpService {
       MessageUtilsClass.ShowAlerts([MessageUtilsClass.NewMessageInfo('Faça login para obter um novo token')], 'Token inválido ou expirado', 700, () => window.location.reload());
 
       //TODO
-      this.browser!.ToClick('web202209080832');
+      this.coreBrowser!.ToClick('web202209080832');
     }
     else if (error.status === 409) {
       MessageUtilsClass.ShowAlerts([MessageUtilsClass.NewMessageError(error.error.mensagem)], 'Operation Server');
-      this.browser!.LoadOk();
+      this.coreBrowser!.LoadOk();
       return throwError(() => new Error(error.error.mensagem));
 
     }
@@ -91,9 +93,9 @@ export class CoreHttpService {
         `Backend returned code ${error.status}, body was: `, error.error);
 
     // Return an observable with a user-facing error message.
-    this.browser!.LoadOk();
+    this.coreBrowser!.LoadOk();
     //TODO
-    this.browser!.ToClick('web202209080832');
+    this.coreBrowser!.ToClick('web202209080832');
     return throwError(() => new Error('Token inválido ou expirado'));
   }
 
@@ -133,7 +135,7 @@ export class CoreHttpService {
 
   public CloseModal(pIdSelector: string): void {
     //TODO
-    this.browser!.ToClick(pIdSelector);
+    this.coreBrowser!.ToClick(pIdSelector);
   }
 
   public DialogOpen(pForm: any, pWidth: string, pController: any): void {
@@ -226,7 +228,7 @@ export class CoreHttpService {
       });
 
     //Verificando Number para serem ajustadas para salvar no banco de dados
-    if  ((!HelperUtilsClass.ObjectIsEmpty(pListFieldsNamesNumberToSave)) && (!HelperUtilsClass.ListIsEmpty(pListFieldsNamesNumberToSave!.list_string)))
+    if ((!HelperUtilsClass.ObjectIsEmpty(pListFieldsNamesNumberToSave)) && (!HelperUtilsClass.ListIsEmpty(pListFieldsNamesNumberToSave!.list_string)))
       pListFieldsNamesNumberToSave!.list_string.forEach((numberStr: any) => {
         _record[numberStr] = LibraryUtilsClass.RoundNumber(_record[numberStr].toString(), pListFieldsNamesNumberToSave!.casas_decimais);
       });
@@ -252,7 +254,7 @@ export class CoreHttpService {
         MessageUtilsClass.ShowAlerts([MessageUtilsClass.NewMessageError(data_err)], pTitleForm);
       })
       .finally(() => {
-        this.browser!.LoadOk();
+        this.coreBrowser!.LoadOk();
       });
 
     return recordToReturn;
@@ -278,7 +280,7 @@ export class CoreHttpService {
         MessageUtilsClass.ShowAlerts([MessageUtilsClass.NewMessageError(data_err)], pTitleForm);
       })
       .finally(() => {
-        this.browser!.LoadOk();
+        this.coreBrowser!.LoadOk();
       });
   }
 
@@ -320,7 +322,7 @@ export class CoreHttpService {
     MessageUtilsClass.ShowAlerts([MessageUtilsClass.NewMessageInfo('Faça login para obter um novo token')], 'Token inválido ou expirado', 700, () => window.location.reload());
 
     //TODO
-    this.browser!.ToClick('web202209080832');
+    this.coreBrowser!.ToClick('web202209080832');
   }
 
   private async PostSave(apiRoute: ApiRouteType, startStatusLoad: boolean = true) {
@@ -334,7 +336,7 @@ export class CoreHttpService {
     let token: string = hasToken ? environment.userErp.iInfoLogin.token : '';
 
     if (startStatusLoad)
-      this.browser!.OnLoad();
+      this.coreBrowser!.OnLoad();
 
     _params =
       LibraryUtilsClass.CopyObject(apiRoute.params, _params);

@@ -1,0 +1,23 @@
+<div class="jrrb-table-response-modal {{controller.configUtils.classRowCenter}}">
+  <div class={{controller.configUtils.classCol2}}>
+    <jrrb-image [caption]="controller.captionLogoRelatorio" [fieldControl]="controller.form.controls['logoRelatorio']"
+      [fieldControlBase64]="controller.form.controls['logoRelatorioBase64']"
+      [imageLoad]="controller.form.controls['logoRelatorioBase64'].value"
+      [idComponent]="controller.idComponentLogoRelatorio" (onClear)="controller.form.markAsDirty()"
+      (onOpen)="controller.form.markAsDirty()" />
+  </div>
+  <div class={{controller.configUtils.classCol2}}>
+    <jrrb-image [caption]="controller.captionLogoSistema" [fieldControl]="controller.form.controls['logoSistema']"
+      [fieldControlBase64]="controller.form.controls['logoSistemaBase64']"
+      [imageLoad]="controller.form.controls['logoSistemaBase64'].value"
+      [idComponent]="controller.idComponentLogoSistema" (onClear)="controller.form.markAsDirty()"
+      (onOpen)="controller.form.markAsDirty()" />
+  </div>
+  <div class={{controller.configUtils.classCol2}}>
+    <jrrb-select [selectList]="controller.ocultarMenuTabelasList"
+      [fieldControl]="controller.form.controls['ocultarMenuTabelas']" [caption]="controller.ocultarMenuTabelasCaption"
+      [fieldNameCaption]="'caption'" [fieldNameValue]="'value'" />
+  </div>
+</div>
+<jrrb-save-cancel [positionOnBotton]="true" [isDisabled]="!controller.form.dirty" (onSave)="controller.ToSave()"
+  (onCancel)="controller.ToCancel()" [toolTipSave]="controller.configUtils.toolTipSave"/>

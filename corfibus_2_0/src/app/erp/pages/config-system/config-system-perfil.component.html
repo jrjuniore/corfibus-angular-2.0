@@ -1,0 +1,57 @@
+<ng-container>
+  <div class="jrrb-table-response-modal">
+    <div class="{{controller!.configUtils.classRow}}">
+      <div class={{controller!.configUtils.classCol4}}>
+        <jrrb-input caption={{controller!.configUtils.razaoSocialCaption}}
+          [fieldControl]="controller!.form.controls['razaoSocialFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.configUtils.nomeFantasiaCaption}}
+          [fieldControl]="controller!.form.controls['nomeFantasiaFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.configUtils.cnpjCaption}}
+          [fieldControl]="controller!.form.controls['cnpjFret']"
+          [maskJrrb]="controller!.configUtils.maskCnpj"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionSpTrans}}
+          [fieldControl]="controller!.form.controls['spTransFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionCcm}}
+          [fieldControl]="controller!.form.controls['ccmFret']"></jrrb-input>
+      </div>
+    </div>
+    <div class="{{controller!.configUtils.classRow}}">
+      <div class={{controller!.configUtils.classCol4}}>
+        <jrrb-input caption={{controller!.captionEndereco}}
+          [fieldControl]="controller!.form.controls['enderecoFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionAntt}}
+          [fieldControl]="controller!.form.controls['anttFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionEmbratur}}
+          [fieldControl]="controller!.form.controls['embraturFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionEmtu}}
+          [fieldControl]="controller!.form.controls['emtuFret']"></jrrb-input>
+      </div>
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionArtesp}}
+          [fieldControl]="controller!.form.controls['artespFret']"></jrrb-input>
+      </div>
+    </div>
+    <div class="{{controller!.configUtils.classRow}}">
+      <div class={{controller!.configUtils.classCol2}}>
+        <jrrb-input caption={{controller!.captionIe}} [fieldControl]="controller!.form.controls['ieFret']"></jrrb-input>
+      </div>
+    </div>
+  </div>
+  <jrrb-save-cancel [positionOnBotton]="true" [isDisabled]="!controller!.form.dirty"
+    [toolTipSave]="controller!.configUtils.toolTipSave" (onSave)="controller!.ToSave()"
+    (onCancel)="controller!.ToCancel()" />
+</ng-container>

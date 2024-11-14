@@ -1,0 +1,127 @@
+<ng-container>
+  <div class="jrrb-table-response-modal container container-fluid">
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">Deslocamentos programados no local</b></div>
+            <jrrb-select [caption]="'Escolha uma opção'"
+              [fieldControl]="controller!.form.controls['deslocProgrLocalContr']"
+              [selectList]="controller!.configUtils!.opcoesSimNaoList" [fieldNameCaption]="'caption'"
+              [fieldNameValue]="'value'" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">3.3. Informar à CONTRATADA com antecedência mínima de
+                [X
+                dias] qualquer alteração no itinerário, número de passageiros, ou horário previamente
+                acordado.</b></div>
+            <jrrb-input [caption]="'[X dias]'" [fieldControl]="controller!.form.controls['alterItinerPassContr']"
+              [maskJrrb]="controller!.configUtils!.maskNumberDoisDigitos" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">4.2. Em caso de cancelamento do serviço por parte do
+                CONTRATANTE, serão aplicadas as seguintes penalidades:</b></div>
+            <div class="{{classSubTitle}}"><b><small>Cancelamento com até [X dias] de antecedência:
+                  devolução
+                  de [X%] do valor pago</small></b></div>
+            <div class="{{controller!.configUtils!.classRow}}">
+              <div class="{{controller!.configUtils!.classCol6}}">
+                <jrrb-input [caption]="'[X dias]'" [fieldControl]="controller!.form.controls['cancelamentoContr']"
+                  [maskJrrb]="controller!.configUtils!.maskNumberDoisDigitos" />
+              </div>
+              <div class="{{controller!.configUtils!.classCol6}}">
+                <jrrb-input [caption]="'[X %]'" [fieldControl]="controller!.form.controls['devolConAntecContr']"
+                  [maskJrrb]="controller!.configUtils!.maskNumberDoisDecimais" />
+              </div>
+            </div>
+            <div class="{{classSubTitle}}"><b><small>Cancelamento com menos de [X dias] de antecedência: sem devolução
+                  do valor pago.</small></b></div>
+            <div class="{{controller!.configUtils!.classRow}}">
+              <div class="{{controller!.configUtils!.classCol12}}">
+                <jrrb-input [caption]="'[X dias]'" [fieldControl]="controller!.form.controls['devolSemAntecContr']"
+                  [maskJrrb]="controller!.configUtils!.maskNumberDoisDigitos" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">5.2. O não pagamento de qualquer parcela na data de
+                vencimento implicará em multa de [X%] sobre o valor devido, além de juros de mora de [X%] ao mês.</b>
+            </div>
+            <div class="{{controller!.configUtils!.classRow}}">
+              <div class="{{controller!.configUtils!.classCol6}}">
+                <jrrb-input [caption]="'[X %]'" [fieldControl]="controller!.form.controls['multaContr']"
+                  [maskJrrb]="controller!.configUtils!.maskNumberDoisDecimais" />
+              </div>
+              <div class="{{controller!.configUtils!.classCol6}}">
+                <jrrb-input [caption]="'[X %]'" [fieldControl]="controller!.form.controls['jurosContr']"
+                  [maskJrrb]="controller!.configUtils!.maskNumberDoisDecimais" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">7.2. Fica eleito o foro da comarca de [Localidade do
+                Contratante] para dirimir quaisquer dúvidas ou litígios decorrentes deste contrato, com renúncia
+                expressa a qualquer outro, por mais privilegiado que seja.</b></div>
+            <jrrb-input [caption]="'Local'" [fieldControl]="controller!.form.controls['localComarcaContr']" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">Local Assinatura</b></div>
+            <jrrb-input [caption]="'Local'" [fieldControl]="controller!.form.controls['localAssinaturaContr']" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="{{classCard}}">
+      <div class="card-body">
+        <div class="{{controller!.configUtils!.classRow}}">
+          <div class="{{controller!.configUtils!.classCol12}}">
+            <div class="card-title"><b class="{{classTitle}}">Representante Legal da Contratada</b></div>
+            <jrrb-input [caption]="'Representante'" [fieldControl]="controller!.form.controls['representanteContr']" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <jrrb-save-cancel [positionOnBotton]="true" [isDisabled]="!controller!.form.dirty"
+    [toolTipSave]="controller!.configUtils.toolTipSave" (onSave)="controller!.ToSave()"
+    (onCancel)="controller!.ToCancel()" />
+</ng-container>
