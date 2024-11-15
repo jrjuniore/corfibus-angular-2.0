@@ -1,8 +1,9 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'bus fa-sm'" [matMenuTriggerFor]="veiculos" [caption]="'Veículos'"/>
-
-<mat-menu #veiculos="matMenu">
+<jrrb-button [isLink]="true" [iconClassFa]="'bus fa-sm'" [matMenuTriggerFor]="veiculos" [caption]="'Veículos'"
+  onmouseenter="this.click()" />
+<mat-menu #veiculos="matMenu" class="menu-left-1rem">
   <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a
+      class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
 </mat-menu>
 
 <mat-menu #tabelas="matMenu">

@@ -1,8 +1,9 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'dollar-sign fa-sm'" [matMenuTriggerFor]="vendas" [caption]="'Vendas'"/>
-
-<mat-menu #vendas="matMenu">
+<jrrb-button [isLink]="true" [iconClassFa]="'dollar-sign fa-sm'" [matMenuTriggerFor]="vendas" [caption]="'Vendas'"
+  onmouseenter="this.click()" />
+<mat-menu #vendas="matMenu" class="menu-left-1rem">
   <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a
+      class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
 </mat-menu>
 
 <mat-menu #tabelas="matMenu">
@@ -17,3 +18,32 @@
   <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Vendas Eventuais</button>
 </mat-menu>
 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Menu Principal
+  </button>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu1">
+        Submenu 1
+      </a>
+      <div class="collapse" id="submenu1">
+        <ul class="list-group">
+          <li class="list-group-item">Item 1.1</li>
+          <li class="list-group-item">Item 1.2</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2">
+        Submenu 2
+      </a>
+      <div class="collapse" id="submenu2">
+        <ul class="list-group">
+          <li class="list-group-item">Item 2.1</li>
+          <li class="list-group-item">Item 2.2</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -25,4 +25,13 @@ export class CoreObservableService {
     return this.usuarioLogadoImage$.asObservable();
   }
 
+  //Imagem do cliente do Corfibus
+  private clienteLogado$ = new BehaviorSubject<boolean>(false);
+  public SetClienteLogado(pClienteLogado: boolean) {
+    this.clienteLogado$.next(pClienteLogado);
+  }
+  public GetClienteLogado(): Observable<boolean> {
+    return this.clienteLogado$.asObservable();
+  }
+
 }

@@ -1,6 +1,8 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'cog fa-sm'" [matMenuTriggerFor]="sistema" [caption]="'Sistema'"/>
-<mat-menu #sistema="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="acessos"><a class="{{this.coreFrameWork.faUserFireWall()}}"></a>Acessos</button>
+<jrrb-button [isLink]="true" [iconClassFa]="'cog fa-sm'" [matMenuTriggerFor]="sistema" [caption]="'Sistema'"
+  onmouseenter="this.click()" />
+<mat-menu #sistema="matMenu" class="menu-left-1rem">
+  <button mat-menu-item [matMenuTriggerFor]="acessos"><a
+      class="{{this.coreFrameWork.faUserFireWall()}}"></a>Acessos</button>
   <button mat-menu-item><a class="{{this.coreFrameWork.faCog()}}"></a>Configurações</button>
   <button mat-menu-item><a class="{{this.coreFrameWork.faGlasses()}}"></a>Auditoria</button>
 </mat-menu>

@@ -321,7 +321,7 @@ textarea,
   padding: 0px !important;
 }
 
-.mat-mdc-menu-panel.mat-mdc-menu-panel {
+.mat-mdc-menu-panel .mat-mdc-menu-panel {
   max-width: 100% !important;
 }
 
@@ -727,4 +727,40 @@ textarea,
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
       0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.accordion-item {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.accordion-button {
+  background: none;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.accordion-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  height: 0;
+}
+
+..dropdown-menu .collapse {
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.dropdown-menu .collapse.show {
+  display: block;
+}
+
+.dropdown-menu .collapse:not(.show) {
+  display: none;
 }

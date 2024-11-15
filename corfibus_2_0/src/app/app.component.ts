@@ -32,20 +32,17 @@ export class AppComponent implements OnInit {
   protected userConnected = signal(false);
   protected controller: AppController = new AppController();
 
-  protected infoLicApelido?: string;
-  protected infoLoginGrupo?: string;
-  protected infoLoginUsuario?: string;
-
   constructor(private coreObservable: CoreObservableService) {
     this.controller.coreRouter.coreErp.LoadSessionStorage();
 
     this.coreObservable.GetUsuarioLogado()
       .subscribe((pUsuarioLogado: boolean) => {
 
-        this.GetInfoUserLogged();
+        this.GetImageUser();
 
         //apenas o logout alterará o usuarioLogado para FALSE
         if (environment.userErp.userConnected && !pUsuarioLogado) {
+          this.controller.ToLogin();
           this.userConnected.set(environment.userErp.userConnected!);
           return;
         }
@@ -78,11 +75,6 @@ export class AppComponent implements OnInit {
     this.controller.StartDeslogarEm();
   }
 
-  private GetInfoUserLogged(): void {
-    this.GetImageUser();
-    this.GetInfoEmpresa();
-  }
-
   private GetImageUser(): void {
 
     //Obtendo a imagem do login do usuário
@@ -95,17 +87,6 @@ export class AppComponent implements OnInit {
 
         this.controller.coreRouter.coreBrowser.LoadOk();
       });
-  }
-
-  private GetInfoEmpresa(): void {
-    //Obtendo as informações da empresa "logada"
-    let infoEmpresa: string[] = this.controller.GetInfoEmpresa();
-
-    if (!HelperUtilsClass.ListIsEmpty(infoEmpresa)) {
-      this.infoLicApelido = infoEmpresa[0];
-      this.infoLoginGrupo = infoEmpresa[1];
-      this.infoLoginUsuario = infoEmpresa[2];
-    }
   }
 
   private ConfirmarNovaConta(): boolean {

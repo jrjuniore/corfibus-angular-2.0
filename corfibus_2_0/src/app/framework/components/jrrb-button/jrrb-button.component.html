@@ -1,6 +1,6 @@
 @if (isBasic)
 {
-<button id="{{jrrbIdButton}}" class="me-2 {{classButton}}" mat-button (click)="ToClick()" matTooltip="{{toolTip}}"
+<a id="{{jrrbIdButton}}" class="align-content-center me-2 {{classButton}}" mat-button (click)="ToClick()" matTooltip="{{toolTip}}"
   matTooltipPosition="above">
 
   @if (iconClassFa)
@@ -9,72 +9,72 @@
   }
 
   <span class="jrrb-button-pointer">{{caption}}</span>
-</button>
+</a>
 }
 
 @if(isRaised)
 {
-<button id="{{jrrbIdButton}}" class="me-2 {{classButton}}" mat-raised-button (click)="ToClick()"
+<a id="{{jrrbIdButton}}" class="align-content-center me-2 {{classButton}}" mat-raised-button (click)="ToClick()"
   matTooltip="{{toolTip}}" matTooltipPosition="above">
   @if(iconClassFa)
   {
   <span class="me-2 jrrb-button-pointer fw-bold fa fa-solid fa-{{iconClassFa}}"></span>
   }
   <span class="jrrb-button-pointer">{{caption}}</span>
-</button>
+</a>
 }
 
 @if(isStroked)
 {
-<button id="{{jrrbIdButton}}" class="me-2 {{classButton}}" mat-stroked-button (click)="ToClick()"
+<a id="{{jrrbIdButton}}" class="align-content-center me-2 {{classButton}}" mat-stroked-button (click)="ToClick()"
   matTooltip="{{toolTip}}" matTooltipPosition="above">
   @if(iconClassFa)
   {
   <span class="me-2 jrrb-button-pointer fw-bold fa fa-solid fa-{{iconClassFa}}"></span>
   }
   <span class="jrrb-button-pointer">{{caption}}</span>
-</button>
+</a>
 }
 
 @if(isFlat)
 {
-<button id="{{jrrbIdButton}}" class="me-2 {{classButton}}" mat-flat-button (click)="ToClick()" matTooltip="{{toolTip}}"
+<a id="{{jrrbIdButton}}" class="align-content-center me-2 {{classButton}}" mat-flat-button (click)="ToClick()" matTooltip="{{toolTip}}"
   matTooltipPosition="above">
   @if(iconClassFa)
   {
   <span class="me-2 jrrb-button-pointer fw-bold fa fa-solid fa-{{iconClassFa}}"></span>
   }
   <span class="jrrb-button-pointer">{{caption}}</span>
-</button>
+</a>
 }
 
 @if(isIcon)
 {
-<button id="{{jrrbIdButton}}" class="p-0 me-2 {{classButton}}" mat-icon-button (click)="ToClick()"
+<a id="{{jrrbIdButton}}" class="p-0 align-content-center me-2 {{classButton}}" mat-icon-button (click)="ToClick()"
   matTooltip="{{toolTip}}" matTooltipPosition="above">
   <span class="fw-bold fa fa-solid fa-{{iconClassFa}}"></span>
-</button>
+</a>
 }
 
 @if(isFab)
 {
-<button id="{{jrrbIdButton}}" class="p-0 me-2 {{classButton}}" mat-fab (click)="ToClick()" matTooltip="{{toolTip}}"
+<a id="{{jrrbIdButton}}" class="p-0 align-content-center me-2 {{classButton}}" mat-fab (click)="ToClick()" matTooltip="{{toolTip}}"
   matTooltipPosition="above">
   <span class="jrrb-button-pointer fw-bold fa fa-solid fa-{{iconClassFa}}"></span>
-</button>
+</a>
 }
 
 @if(isMiniFab)
 {
-<button id="{{jrrbIdButton}}" class="p-0 me-2 {{classButton}}" mat-mini-fab (click)="ToClick()" matTooltip="{{toolTip}}"
+<a id="{{jrrbIdButton}}" class="p-0 align-content-center me-2 {{classButton}}" mat-mini-fab (click)="ToClick()" matTooltip="{{toolTip}}"
   matTooltipPosition="above">
   <span class="jrrb-button-pointer fw-bold fa fa-solid fa-{{iconClassFa}}"></span>
-</button>
+</a>
 }
 
 @if(isLink)
 {
-<span id="{{jrrbIdButton}}" class="me-2 {{classButton}}" (click)="ToClick()" matTooltip="{{toolTip}}"
+<a id="{{jrrbIdButton}}" class="align-content-center me-2 {{classButton}}" (click)="ToClick()" matTooltip="{{toolTip}}"
   matTooltipPosition="above">
   @if(iconClassFa)
   {
@@ -82,5 +82,5 @@
   }
 
   <span class="jrrb-button-pointer">{{caption}}</span>
-</span>
+</a>
 }

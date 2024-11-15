@@ -1,8 +1,12 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'file-pdf fa-sm'" [matMenuTriggerFor]="relatorios" [caption]="'Relatórios'"/>
-<mat-menu #relatorios="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="vendasEventuais"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Vendas Eventuais</button>
-  <button mat-menu-item [matMenuTriggerFor]="Administrativo"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Diário</button>
-  <button mat-menu-item [matMenuTriggerFor]="financeiro"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>financeiro</button>
+<jrrb-button [isLink]="true" [iconClassFa]="'file-pdf fa-sm'" [matMenuTriggerFor]="relatorios" [caption]="'Relatórios'"
+  onmouseenter="this.click()" />
+<mat-menu #relatorios="matMenu" class="menu-left-1rem">
+  <button mat-menu-item [matMenuTriggerFor]="vendasEventuais"><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Vendas
+    Eventuais</button>
+  <button mat-menu-item [matMenuTriggerFor]="Administrativo"><a
+      class="{{this.coreFrameWork.faFilePdf()}}"></a>Diário</button>
+  <button mat-menu-item [matMenuTriggerFor]="financeiro"><a
+      class="{{this.coreFrameWork.faFilePdf()}}"></a>financeiro</button>
   <button mat-menu-item><a class="{{this.coreFrameWork.faFilePdf()}}"></a>Tabelas</button>
 </mat-menu>
 

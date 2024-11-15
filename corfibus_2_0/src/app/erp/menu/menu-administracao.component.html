@@ -1,9 +1,11 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'table fa-sm'" [matMenuTriggerFor]="administracao" [caption]="'Administração'"/>
-<mat-menu #administracao="matMenu">
+<jrrb-button [isLink]="true" [iconClassFa]="'table fa-sm'" [matMenuTriggerFor]="administracao"
+  [caption]="'Administração'" onmouseenter="this.click()" />
+<mat-menu #administracao="matMenu" class="menu-left-1rem">
   <button mat-menu-item [matMenuTriggerFor]="gerais"><a class="{{this.coreFrameWork.faTable()}}"></a>Gerais</button>
   <button mat-menu-item [matMenuTriggerFor]="diario"><a class="{{this.coreFrameWork.faTable()}}"></a>Diário</button>
   <button mat-menu-item [matMenuTriggerFor]="cep"><a class="{{this.coreFrameWork.faTable()}}"></a>CEP</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a class="{{this.coreFrameWork.faDatabase()}}"></a>Cadastros</button>
+  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a
+      class="{{this.coreFrameWork.faDatabase()}}"></a>Cadastros</button>
 </mat-menu>
 
 <mat-menu #gerais="matMenu">

@@ -11,6 +11,7 @@ import { Observable, take } from "rxjs";
 import { CoreHttpService } from "../../../core/core-http.service";
 import { ApiRouteUtilsClass } from "../../../share/class-utils/api-route-utils.class";
 import { CoreFrameworkService } from "../../../core/core-framework.service";
+import { CoreObservableService } from "../../../core/core-observable.service";
 
 export class AppController {
 
@@ -21,6 +22,12 @@ export class AppController {
   private idSetTimeOutDeslogAuto: any;
   private coreFrameWork: CoreFrameworkService = inject(CoreFrameworkService);
   private coreHttp: CoreHttpService = inject(CoreHttpService);
+  private coreObservable: CoreObservableService = inject(CoreObservableService);
+
+  public infoLicApelido = signal('');
+  public infoLoginGrupo = signal('');
+  public infoLoginUsuario = signal('');
+
 
   constructor() {
     this.StartDeslogarEm();
@@ -59,6 +66,10 @@ export class AppController {
         //Atualizando para uso do sistema;
         environment.userErp.config = listParams;
         this.coreRouter.coreErp.SaveSessionStorage();
+
+        //avisando o observable
+        this.coreObservable.SetClienteLogado(true);
+
         this.NavigateTo('agenda', true);
         LibraryUtilsClass.LoadOk();
       });;
@@ -78,21 +89,6 @@ export class AppController {
       return this.coreHttp.PostApiAuth(ApiRouteUtilsClass.share.ToGetImage(environment.userErp.iInfoLogin.img_logo, environment.userErp.iInfoEmpresa.id_empresa));
 
     return new Observable<null>;
-  }
-
-  public GetInfoEmpresa(): string[] {
-    let canGetInfoEmpresa: boolean =
-      !HelperUtilsClass.ObjectIsEmpty(environment.userErp.iInfoLogin) &&
-      !HelperUtilsClass.ObjectIsEmpty(environment.userErp.iInfoEmpresa);
-
-    if (canGetInfoEmpresa)
-      return [
-        environment.userErp.iInfoEmpresa.apelido,
-        environment.userErp.iInfoLogin.nomeGrupo,
-        environment.userErp.iInfoLogin.usuario
-      ];
-
-    return [];
   }
 
   public ToLogOut(): void {

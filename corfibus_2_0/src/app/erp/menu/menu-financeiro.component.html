@@ -1,6 +1,7 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'coins fa-sm'" [matMenuTriggerFor]="financeiro" [caption]="'Financeiro'"/>
+<jrrb-button [isLink]="true" [iconClassFa]="'coins fa-sm'" [matMenuTriggerFor]="financeiro" [caption]="'Financeiro'"
+  onmouseenter="this.click()" />
 
-<mat-menu #financeiro="matMenu">
+<mat-menu #financeiro="matMenu" class="menu-left-1rem">
   <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
 </mat-menu>
 
