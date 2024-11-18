@@ -1,5 +1,5 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'dollar-sign fa-sm'" [matMenuTriggerFor]="vendas" [caption]="'Vendas'"
-  onmouseenter="this.click()" />
+<jrrb-button [isLink]="true" [iconClassFa]="'dollar-sign fa-sm'" [matMenuTriggerFor]="vendas"
+  #vendasMenuTrigger="matMenuTrigger" [caption]="'Vendas'" onmouseenter="this.click()" />
 <mat-menu #vendas="matMenu" class="menu-left-1rem">
   <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
   <button mat-menu-item [matMenuTriggerFor]="cadastros"><a
@@ -18,32 +18,51 @@
   <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Vendas Eventuais</button>
 </mat-menu>
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Menu Principal
-  </button>
-  <ul class="dropdown-menu">
-    <li>
-      <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu1">
-        Submenu 1
-      </a>
-      <div class="collapse" id="submenu1">
-        <ul class="list-group">
-          <li class="list-group-item">Item 1.1</li>
-          <li class="list-group-item">Item 1.2</li>
-        </ul>
+
+
+<div class="container mt-4">
+  <!-- Menu Principal -->
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Menu Principal
+    </a>
+    <ul class="dropdown-menu p-3">
+      <!-- Accordion Submenu 1 -->
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Submenu 1
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li class="list-group-item"><a href="#">Item 1.1</a></li>
+                <li class="list-group-item"><a href="#">Item 1.2</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Accordion Submenu 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Submenu 2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li class="list-group-item"><a href="#">Item 2.1</a></li>
+                <li class="list-group-item"><a href="#">Item 2.2</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </li>
-    <li>
-      <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2">
-        Submenu 2
-      </a>
-      <div class="collapse" id="submenu2">
-        <ul class="list-group">
-          <li class="list-group-item">Item 2.1</li>
-          <li class="list-group-item">Item 2.2</li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+    </ul>
+  </div>
 </div>
+
+
