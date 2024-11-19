@@ -1,10 +1,17 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'coins fa-sm'" [matMenuTriggerFor]="financeiro" [caption]="'Financeiro'"
-  onmouseenter="this.click()" />
+<mat-expansion-panel class="mat-elevation-z0 border jrrb-border-color-b jrrb-bg-color-b4">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="jrrb-color-b">
+        <i class="{{coreFrameWork.faBase()}}coins me-2"></i>
+        <label>Financeiro</label>
+      </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-<mat-menu #financeiro="matMenu" class="menu-left-1rem">
-  <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
-</mat-menu>
+  <menu-item [titleItem]="'Tabelas'" [iconFa]=coreFrameWork.faTable()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Tipos Despesas</span>
+    </div>
+  </menu-item>
 
-<mat-menu #tabelas="matMenu">
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Tipos Despesas</button>
-</mat-menu>
+</mat-expansion-panel>

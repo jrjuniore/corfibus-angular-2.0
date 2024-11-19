@@ -19,30 +19,33 @@
         </div>
       </div>
     </div>
+
     <div class="p-2 h-100 jrrb-bg-color-b4 d-flex flex-column">
-      <span class="{{menu_p2()}}">
-        <menu-administracao />
-      </span>
-      <hr />
-      <span class="{{menu_p2()}}">
-        <menu-veiculos />
-      </span>
-      <hr />
-      <span class="{{menu_p2()}}">
-        <menu-vendas />
-      </span>
-      <hr />
-      <span class="{{menu_p2()}}">
-        <menu-financeiro />
-      </span>
-      <hr />
-      <span class="{{menu_p2()}}">
-        <menu-relatorios />
-      </span>
-      <hr />
-      <span class="{{menu_p2()}}">
-        <menu-sistema />
-      </span>
+      <mat-accordion class="d-flex flex-column gap-1">
+        <span class="{{menu_p2()}}">
+          <menu-administracao />
+        </span>
+
+        <span class="{{menu_p2()}}">
+          <menu-veiculos />
+        </span>
+
+        <span class="{{menu_p2()}}">
+          <menu-vendas />
+        </span>
+
+        <span class="{{menu_p2()}}">
+          <menu-financeiro />
+        </span>
+
+        <span class="{{menu_p2()}}">
+          <menu-relatorios />
+        </span>
+
+        <span class="{{menu_p2()}}">
+          <menu-sistema />
+        </span>
+      </mat-accordion>
     </div>
   </mat-drawer>
 
@@ -51,8 +54,8 @@
       <source [srcset]="infoImageLic()" type="image/png">
       <img class="img-fluid img-thumbnail sty_202514111928" [src]="infoImageLic()">
     </picture>
-    
-</div>
+
+  </div>
   <div class="p-2 px-3 d-flex justify-content-between jrrb-color-snow jrrb-bg-color-b">
     <jrrb-button [isIcon]="true" [iconClassFa]="'bars jrrb-color-c fa-sm'" (onClick)="drawer.toggle()" />
 

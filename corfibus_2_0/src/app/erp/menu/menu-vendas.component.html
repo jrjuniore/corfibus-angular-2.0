@@ -1,68 +1,26 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'dollar-sign fa-sm'" [matMenuTriggerFor]="vendas"
-  #vendasMenuTrigger="matMenuTrigger" [caption]="'Vendas'" onmouseenter="this.click()" />
-<mat-menu #vendas="matMenu" class="menu-left-1rem">
-  <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a
-      class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
-</mat-menu>
+<mat-expansion-panel class="mat-elevation-z0 border jrrb-border-color-b jrrb-bg-color-b4">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="jrrb-color-b">
+        <i class="{{coreFrameWork.faBase()}}dollar-sign me-2"></i>
+        <label>Vendas</label>
+      </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-<mat-menu #tabelas="matMenu">
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Serviços</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Motivos de Cancelamentos</button>
-</mat-menu>
+  <menu-item [titleItem]="'Tabelas'" [iconFa]=coreFrameWork.faTable()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Serviços</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Motivos de Cancelamentos</span>
+    </div>
+  </menu-item>
 
-<mat-menu #cadastros="matMenu">
-  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Valores KM</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Valores Serviços</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Valores Períodos</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Vendas Eventuais</button>
-</mat-menu>
-
-
-
-<div class="container mt-4">
-  <!-- Menu Principal -->
-  <div class="dropdown">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Menu Principal
-    </a>
-    <ul class="dropdown-menu p-3">
-      <!-- Accordion Submenu 1 -->
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Submenu 1
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <ul class="list-group">
-                <li class="list-group-item"><a href="#">Item 1.1</a></li>
-                <li class="list-group-item"><a href="#">Item 1.2</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- Accordion Submenu 2 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Submenu 2
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <ul class="list-group">
-                <li class="list-group-item"><a href="#">Item 2.1</a></li>
-                <li class="list-group-item"><a href="#">Item 2.2</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ul>
-  </div>
-</div>
-
-
+  <menu-item [titleItem]="'Cadastros'" [iconFa]=coreFrameWork.faDatabase()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Valores KM</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Valores Serviços</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Valores Períodos</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Vendas Eventuais</span>
+    </div>
+  </menu-item>
+</mat-expansion-panel>

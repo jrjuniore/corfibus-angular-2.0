@@ -44,15 +44,18 @@ export class CoreFrameworkService {
   public classCol12 = signal(LibraryUtilsClass.GetClassCol(12));
   public classCol12ATop = signal(LibraryUtilsClass.GetClassColAlignTop(12));
 
+  public itemMenu = signal('jrrb-font-14px jrrb-color-b jrrb-cursor-pointer');
   public faBase = signal('fa fa-solid fa-');
-  public faBaseBase = signal(' jrrb-color-snow me-2');
-  public faTable = signal(this.faBase() + 'table' + this.faBaseBase());
-  public faDatabase = signal(this.faBase() + 'database' + this.faBaseBase());
-  public faFilePdf = signal(this.faBase() + 'file-pdf' + this.faBaseBase());
-  public faCog = signal(this.faBase() + 'cog' + this.faBaseBase());
-  public faAcessos = signal(this.faBase() + 'cog' + this.faBaseBase());
-  public faUserFireWall = signal(this.faBase() + 'user-shield' + this.faBaseBase());
-  public faGlasses = signal(this.faBase() + 'glasses' + this.faBaseBase());
+  public faBaseBase = signal(' jrrb-color-a2 me-2');
+  public faTable = signal('table' + this.faBaseBase());
+  public faDatabase = signal('database' + this.faBaseBase());
+  public faHome = signal('home' + this.faBaseBase());
+  public faBus = signal('bus' + this.faBaseBase());
+  public faFilePdf = signal('file-pdf' + this.faBaseBase());
+  public faCog = signal('cog' + this.faBaseBase());
+  public faAcessos = signal('cog' + this.faBaseBase());
+  public faUserFireWall = signal('user-shield' + this.faBaseBase());
+  public faGlasses = signal('glasses' + this.faBaseBase());
   public marginResponsiva = signal('mb-md-0 mb-lg-0, mb-xl-0 mb-xxl-0 mb-');
 
   //para uso externo

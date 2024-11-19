@@ -63,7 +63,7 @@ hr {
 
 .mat-expansion-panel-header.mat-expanded {
   height: auto !important;
-  background-color: var(--jrrbColorA) !important;
+  background-color: var(--jrrbColorB) !important;
   margin-bottom: 7px !important;
   padding-top: 8px !important;
   padding-bottom: 8px !important;
@@ -79,7 +79,7 @@ hr {
 }
 
 .mat-expansion-panel-header.mat-expanded span {
-  color: var(--jrrbColorA2) !important;
+  color: var(--jrrbColorA3) !important;
   text-transform: uppercase;
 }
 
@@ -324,9 +324,6 @@ textarea,
   max-width: 100% !important;
 }
 
-.cdk-overlay-connected-position-bounding-box {
-  left: 2.1rem !important;
-}
 
 .formSearch {
   z-index: 7 !important;
@@ -730,13 +727,5 @@ textarea,
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
       0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-/* Ajuste para o dropdown */
-.dropdown-menu {
-  padding: 0;
 }
 

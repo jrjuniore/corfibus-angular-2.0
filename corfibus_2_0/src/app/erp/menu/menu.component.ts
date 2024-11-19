@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuAdministracaoComponent } from './menu-administracao.component';
 import { MenuVeiculosComponent } from './menu-veiculos.component';
 import { MenuVendasComponent } from './menu-vendas.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MenuFinanceiroComponent } from './menu-financeiro.component';
 import { MenuRelatoriosComponent } from './menu-relatorios.component';
 import { MenuSistemaComponent } from './menu-sistema.component';
@@ -19,7 +20,7 @@ import { ConfigSystemMapperClass } from '../pages/config-system/config-system.ma
 @Component({
   selector: 'menu',
   standalone: true,
-  imports: [MatMenuModule, MatSidenavModule, MatToolbarModule, MenuAdministracaoComponent, MenuVeiculosComponent, MenuVendasComponent,
+  imports: [MatMenuModule, MatExpansionModule, MatSidenavModule, MatToolbarModule, MenuAdministracaoComponent, MenuVeiculosComponent, MenuVendasComponent,
     MenuFinanceiroComponent, MenuRelatoriosComponent, MenuSistemaComponent, JrrbButtonComponent
   ],
   templateUrl: './menu.component.html',
@@ -50,7 +51,7 @@ import { ConfigSystemMapperClass } from '../pages/config-system/config-system.ma
 })
 export class MenuComponent implements OnDestroy {
 
-  protected menu_p2 = signal('p-2');
+  protected menu_p2 = signal('pb-2');
 
   protected infoImageLic = signal('/assets/images/common/emptyPhoto.png');
   protected imageFileDefault = signal('/assets/images/common/emptyPhoto.png');

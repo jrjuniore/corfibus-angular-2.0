@@ -1,21 +1,28 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'bus fa-sm'" [matMenuTriggerFor]="veiculos" [caption]="'Veículos'"
-  onmouseenter="this.click()" />
-<mat-menu #veiculos="matMenu" class="menu-left-1rem">
-  <button mat-menu-item [matMenuTriggerFor]="tabelas"><a class="{{this.coreFrameWork.faTable()}}"></a>Tabelas</button>
-  <button mat-menu-item [matMenuTriggerFor]="cadastros"><a
-      class="{{this.coreFrameWork.faDatabase()}}"></a>Cadatros</button>
-</mat-menu>
+<mat-expansion-panel class="mat-elevation-z0 border jrrb-border-color-b jrrb-bg-color-b4">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="jrrb-color-b">
+        <i class="{{coreFrameWork.faBase()}}bus me-2"></i>
+        <label>Veículos</label>
+      </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-<mat-menu #tabelas="matMenu">
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Combustíveis</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Categorias</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Chassis</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Carrocerias</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Marcas</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faTable()}}"></a>Modelos</button>
-</mat-menu>
+  <menu-item [titleItem]="'Tabelas'" [iconFa]=coreFrameWork.faTable()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Combustíveis</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Categorias</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Chassis</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Carrocerias</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Marcas</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Modelos</span>
+    </div>
+  </menu-item>
 
-<mat-menu #cadastros="matMenu">
-  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Motoristas</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faDatabase()}}"></a>Veículos</button>
-</mat-menu>
+  <menu-item [titleItem]="'Cadastros'" [iconFa]=coreFrameWork.faDatabase()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Motoristas</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Veículos</span>
+    </div>
+  </menu-item>
+</mat-expansion-panel>

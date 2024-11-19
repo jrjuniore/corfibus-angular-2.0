@@ -1,13 +1,24 @@
-<jrrb-button [isLink]="true" [iconClassFa]="'cog fa-sm'" [matMenuTriggerFor]="sistema" [caption]="'Sistema'"
-  onmouseenter="this.click()" />
-<mat-menu #sistema="matMenu" class="menu-left-1rem">
-  <button mat-menu-item [matMenuTriggerFor]="acessos"><a
-      class="{{this.coreFrameWork.faUserFireWall()}}"></a>Acessos</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faCog()}}"></a>Configurações</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faGlasses()}}"></a>Auditoria</button>
-</mat-menu>
+<mat-expansion-panel class="mat-elevation-z0 border jrrb-border-color-b jrrb-bg-color-b4">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="jrrb-color-b">
+        <i class="{{coreFrameWork.faBase()}}cog me-2"></i>
+        <label>Sistema</label>
+      </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-<mat-menu #acessos="matMenu">
-  <button mat-menu-item><a class="{{this.coreFrameWork.faUserFireWall()}}"></a>Grupos</button>
-  <button mat-menu-item><a class="{{this.coreFrameWork.faUserFireWall()}}"></a>Usuários</button>
-</mat-menu>
+  <menu-item [titleItem]="'Acessos'" [iconFa]=coreFrameWork.faUserFireWall()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Grupos</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Usuários</span>
+    </div>
+  </menu-item>
+
+  <menu-item [titleItem]="'Administração'" [iconFa]=coreFrameWork.faCog()>
+    <div class="d-flex flex-column">
+      <span class="{{coreFrameWork.itemMenu()}}">Configurações</span>
+      <span class="{{coreFrameWork.itemMenu()}}">Auditoria</span>
+    </div>
+  </menu-item>
+</mat-expansion-panel>
