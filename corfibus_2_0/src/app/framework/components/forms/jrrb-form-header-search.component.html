@@ -1,0 +1,24 @@
+<jrrb-form-header [titleHeader]="titleHeader!" [isForModal]="isForModal" (onClose)="ToClose()">
+  <jrrb-button [isIcon]="true" [iconClassFa]="'search jrrb-color-b'" [toolTip]="'Pesquisar'"
+    (onClick)="pesquisar = true" (onClose)="ToClose()">
+  </jrrb-button>
+</jrrb-form-header>
+
+<ng-container *ngIf="pesquisar">
+  <div class="jrrb-bg-color-snow jrrb-form-search mat-elevation-z20 w-75">
+    <mat-card class="shadow-none">
+      <mat-card-header class="jrrb-bg-color-c2 pb-3 justify-content-center">
+        <mat-card-title class="fs-4 jrrb-color-a3">{{titleSearch}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ng-content></ng-content>
+      </mat-card-content>
+      <mat-card-actions>
+        <jrrb-button [isStroked]="true" [classButton]="'bg-success text-white'" [caption]="'Pesquisar'"
+          (onClick)="ToSearch()"></jrrb-button>
+        <jrrb-button [caption]="'Cancelar'" [isStroked]="true" [classButton]="'bg-light text-secondary'"
+          (onClick)="pesquisar = false"></jrrb-button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</ng-container>

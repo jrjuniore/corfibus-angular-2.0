@@ -20,5 +20,10 @@ export const routes: Routes = [
     path: 'confirmar-nova-conta',
     loadComponent: () =>
       import('../app/erp/pages/autenticacao/confirm-new-empresa.component').then((m) => m.ConfirmNewEmpresaComponent)
-  }
+  },
+  {
+    path: 'registro',
+    loadComponent: () =>
+      import('../app/erp/pages/licenca/licenca.component').then((m) => m.LicencaComponent),
+  },
 ];

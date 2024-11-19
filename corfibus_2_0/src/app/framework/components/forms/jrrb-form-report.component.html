@@ -1,0 +1,25 @@
+<jrrb-form-header [titleHeader]=captionReportHeader! />
+<ng-container>
+  <div class="{{controller.classRowCenter}} ">
+    <div class={{classCol}}>
+      <mat-card class="m-2">
+        <mat-card-header
+          class="jrrb-bg-color-a3 jrrb-color-a2 p-2 text-center jrrb-font-w-500 border border-top-0 border-start-0 border-end-0 jrrb-border-color-a4 fs-5">
+          <mat-card-title>{{captionReport}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class={{controller.classRow}}>
+            <div class={{controller.classCol12}}>
+              <jrrb-select [selectList]="selectList" [fieldControl]="fieldControl" [caption]="captionList"
+                [fieldNameCaption]="fieldNameCaption" [fieldNameValue]="fieldNameValue" />
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <jrrb-button [toolTip]="'Imprimir'" [isMiniFab]="true" [classButton]="'bg-success'"
+            [iconClassFa]="'print text-white fa-lg'" (onClick)="ToPrint()"></jrrb-button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</ng-container>

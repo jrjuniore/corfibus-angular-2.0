@@ -1,0 +1,31 @@
+<jrrb-form-header [titleHeader]="captionReport!" [subTitleHeader]="captionParams" />
+<div class="{{classRowCenter}} jrrb-table-response-report">
+  <div class={{classCol}}>
+    <mat-card class="m-2">
+      <mat-card-content class="p-0 px-2">
+        <div class="{{classContainer ? classContainer : ''}}">
+          <ng-content></ng-content>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="d-flex w-100">
+          <ng-container *ngIf="showPrintParams">
+            <div class="w-50 align-content-center">
+              <mat-checkbox [color]="'primary'" [(ngModel)]="printParams">Imprimir os parâmetros</mat-checkbox>
+            </div>
+          </ng-container>
+          <div class="{{!showPrintParams ? 'w-100 text-center' : 'w-50'}}">
+            <jrrb-button [toolTip]="'Imprimir'" [isMiniFab]="true" [classButton]="'bg-success'"
+              [iconClassFa]="'print text-white fa-lg'" (onClick)="ToPrint()" />
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<div>
+  <ng-container *ngIf="messageInfo">
+    <h6 class="text-center jrrb-color-a2 jrrb-bg-color-b4 p-2 container container-fluid border rounded">{{messageInfo}}
+    </h6>
+  </ng-container>
+</div>

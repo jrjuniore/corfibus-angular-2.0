@@ -16,6 +16,7 @@ import { environment } from '../../../environments/environment';
 import { HelperUtilsClass } from '../../share/class-utils/helper-utils.class';
 import { Subscription } from 'rxjs';
 import { ConfigSystemMapperClass } from '../pages/config-system/config-system.mapper';
+import { MenuController } from './menu.controller';
 
 @Component({
   selector: 'menu',
@@ -59,6 +60,7 @@ export class MenuComponent implements OnDestroy {
   protected infoLoginGrupo = signal(environment.userErp.iInfoLogin.nomeGrupo);
   protected infoLoginUsuario = signal(environment.userErp.iInfoLogin.usuario);
 
+  private controller: MenuController = new MenuController();
   private sub: Subscription = new Subscription();
   private sub2: Subscription = new Subscription();
 
@@ -82,6 +84,10 @@ export class MenuComponent implements OnDestroy {
   protected ToLogOut(): void {
     environment.userErp.userConnected = false;
     this.coreObservable.SetUsuarioLogado(environment.userErp.userConnected);
+  }
+
+  protected NavigateToLicenca(): void {
+    this.controller.NavigateTo('registro', environment.userErp.userConnected);
   }
 
   public ngOnDestroy(): void {

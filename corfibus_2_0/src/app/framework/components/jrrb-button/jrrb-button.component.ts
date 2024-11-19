@@ -13,6 +13,7 @@ export class JrrbButtonComponent {
   @Input() jrrbIdButton?: string;
   @Input() caption?: string;
   @Input() classButton?: string;
+  @Input() classCaption?: string;
   @Input() toolTip?: string;
   @Input() isBasic?: boolean;
   @Input() isRaised?: boolean;

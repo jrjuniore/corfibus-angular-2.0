@@ -62,6 +62,8 @@ export class CoreFrameworkService {
   public emailFrom = signal("noreply@corfibus.com.br");
   public emailToAdminCorfiBus = signal("admin@corfibus.com.br");
 
+  public bgForm = signal('p-3 mat-elevation-z2 rounded-2 jrrb-bg-color-ghostwhite');
+
   public listFieldsNames = signal(['nome', 'ativoStr', 'date_Create_Str', 'date_Alter_Str']);
   public listFieldsCaption = signal(['Tipo', 'Ativo', 'Data Inclusão', 'Data Alteração']);
   public listFields2Caption = signal(['Nome', 'Ativo', 'Data Inclusão', 'Data Alteração']);

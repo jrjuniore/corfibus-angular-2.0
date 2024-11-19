@@ -1,0 +1,15 @@
+<div class="text-center mt-2">
+  <small>{{infoComp}}</small>
+</div>
+<div class="border rounded shadow-sm m-3">
+  <table class="table table-borderless table-responsive table-sm table-striped m-0">
+    <tbody>
+      <ng-container *ngFor="let record of _listRecord;">
+        <tr>
+          <td class="text-end pe-1 ps-2 w-50"><b><small>{{record.info01}}</small></b></td>
+          <td class="ps-1"><small>{{record.info02}}</small></td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

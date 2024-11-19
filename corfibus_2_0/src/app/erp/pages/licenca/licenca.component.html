@@ -1,0 +1,22 @@
+<jrrb-form-header [titleHeader]="'Licença'" />
+<div class="jrrb-formcad-response_2 {{controller.coreFrameWork.bgForm()}}">
+  <div class="{{classRow}}">
+    <div class="{{classCol2}}">
+      <img src={{imageFile}} class="mt-3 img-fluid img-thumbnail jrrb-width-60_pc" alt="Image Login">
+    </div>
+    <div class="{{classCol7}}">
+      <jrrb-table-chave-valor [listRecord]="listLicenca" [separador]="['=']" />
+      <div class="text-center">
+        <jrrb-button [caption]="'Termo de Adesão'" [isRaised]="true" [classButton]="'bg-primary'" [classCaption]="'text-white'"
+          (onClick)="controller.OpenDialogTermoAdesao()" />
+      </div>
+
+      <ng-container *ngIf="mensagem != 'lic_ok'">
+        <div class="text-center"><small
+            class="jrrb-font-w-500 bg-warning text-danger p-2 rounded border border-1 border-warning">{{mensagem}}</small>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>

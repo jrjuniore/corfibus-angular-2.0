@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header class="jrrb-bg-color-b4 pb-3">
+    <mat-card-title class="fs-4 jrrb-color-b fw-bold">{{titleForm}}</mat-card-title>
+    <mat-card-subtitle class="jrrb-color-b d-flex justify-content-between">
+      <small>{{subTitleForm}}</small>
+      <small>{{subTitleFormCompl}}</small>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="jrrb-formcad-response_tab_config p-0">
+    <ng-content></ng-content>
+  </mat-card-content>
+  <mat-card-actions>
+
+    <ng-container *ngIf="formIsEnabled && !withButtonAplic">
+      <jrrb-button [isIcon]="true" [toolTip]="'Salvar'" [iconClassFa]="'save text-success'" (onClick)="ToSave()" />
+    </ng-container>
+
+    <ng-container *ngIf="formIsEnabled && !withButtonAplic">
+      <jrrb-button [isIcon]="true" [iconClassFa]="'ban text-danger'" [toolTip]="'Cancelar'" (onClick)="ToExit()" />
+    </ng-container>
+
+    <ng-container *ngIf="formIsEnabled && withButtonAplic">
+      <jrrb-button [isStroked]="true" [caption]="captionBtnAplicSave" [classButton]="'bg-success text-white'"
+        (onClick)="ToSave()" />
+    </ng-container>
+
+    <ng-container *ngIf="formIsEnabled && withButtonAplic">
+      <jrrb-button [isStroked]="true" [caption]="captionBtnAplicCancel" [classButton]="'bg-danger text-white'"
+        (onClick)="ToExit()" />
+    </ng-container>
+
+    <ng-container *ngIf="!formIsEnabled">
+      <jrrb-button [isIcon]="true" [iconClassFa]="'door-open text-secondary'" [toolTip]="'Fechar tela'"
+        (onClick)="ToExit()" />
+    </ng-container>
+
+  </mat-card-actions>
+</mat-card>
+<a id={{idButtonCloseModal}} hidden (click)="ToExit()"></a>

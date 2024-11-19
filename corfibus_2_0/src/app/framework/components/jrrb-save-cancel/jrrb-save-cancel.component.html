@@ -1,0 +1,12 @@
+<div class="text-center jrrb-bg-color-b3 p-2 
+    {{positionOnBotton ? 'position-fixed bottom-0 w-100' : ''}}
+    {{isDisabled ? 'jrrb-disabled' : ''}}">
+  <jrrb-button [toolTip]="toolTipSave" [isStroked]="true"
+    [classButton]="classButtonSave ? classButtonSave : 'bg-success text-white'" [caption]="captionSave"
+    (onClick)="ToSave()">
+  </jrrb-button>
+  <jrrb-button [toolTip]="toolTipCancel" [isStroked]="true"
+    [classButton]="classButtonCancel ? classButtonCancel : 'bg-ligth text-primary'" [caption]="captionCancel"
+    (onClick)="ToCancel()">
+  </jrrb-button>
+</div>

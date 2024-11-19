@@ -1,0 +1,16 @@
+<jrrb-form-cad-modal [titleForm]="controller.titleFormCad" [subTitleForm]="controller.subTitleFormCad"
+  [idButtonCloseModal]="controller.idButtonCloseModal" [formIsEnabled]="!controller.isVisualize" (onExit)="ToExit()"
+  (onSave)="ToSave()">
+
+  <ng-container>
+    <div class={{controller.classRow}}>
+      <div class={{controller.classCol10}}>
+        <jrrb-input caption={{controller.tipoCaption}} [fieldControl]="controller.form.controls['nome']"></jrrb-input>
+      </div>
+      <div class={{controller.classCol2}}>
+        <jrrb-check-box caption={{controller.ativoCaption}} [fieldControl]="controller.form.controls['ativo']"></jrrb-check-box>
+      </div>
+    </div>
+  </ng-container>
+
+</jrrb-form-cad-modal>
