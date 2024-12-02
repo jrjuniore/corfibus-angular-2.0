@@ -8,7 +8,20 @@ import { environment } from '../../environments/environment';
 export class CoreObservableService {
 
   //Usuário Logado
-  private usuarioLogado$ = new BehaviorSubject<boolean>(environment.userErp.userConnected);
+  private usuarioLogado$;
+
+  //Imagem Usuario
+  private usuarioLogadoImage$;
+
+  //Imagem do cliente do Corfibus
+  private clienteLogado$;
+
+  constructor() {
+    this.clienteLogado$ = new BehaviorSubject<boolean>(false);
+    this.usuarioLogadoImage$ = new BehaviorSubject<string | undefined>(undefined);
+    this.usuarioLogado$ = new BehaviorSubject<boolean>(environment.userErp.userConnected);
+  }
+
   public SetUsuarioLogado(pUsuarioLogado: boolean) {
     this.usuarioLogado$.next(pUsuarioLogado);
   }
@@ -16,8 +29,6 @@ export class CoreObservableService {
     return this.usuarioLogado$.asObservable();
   }
 
-  //Imagem Usuario
-  private usuarioLogadoImage$ = new BehaviorSubject<string | undefined>(undefined);
   public SetUsuarioLogadoImage(pUsuarioLogadoImage: string | undefined) {
     this.usuarioLogadoImage$.next(pUsuarioLogadoImage);
   }
@@ -25,11 +36,10 @@ export class CoreObservableService {
     return this.usuarioLogadoImage$.asObservable();
   }
 
-  //Imagem do cliente do Corfibus
-  private clienteLogado$ = new BehaviorSubject<boolean>(false);
   public SetClienteLogado(pClienteLogado: boolean) {
     this.clienteLogado$.next(pClienteLogado);
   }
+
   public GetClienteLogado(): Observable<boolean> {
     return this.clienteLogado$.asObservable();
   }

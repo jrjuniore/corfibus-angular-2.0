@@ -60,7 +60,8 @@ export class MenuComponent implements OnDestroy {
   protected infoLoginGrupo = signal(environment.userErp.iInfoLogin.nomeGrupo);
   protected infoLoginUsuario = signal(environment.userErp.iInfoLogin.usuario);
 
-  private controller: MenuController = new MenuController();
+  protected controller: MenuController = new MenuController();
+
   private sub: Subscription = new Subscription();
   private sub2: Subscription = new Subscription();
 
@@ -68,7 +69,7 @@ export class MenuComponent implements OnDestroy {
     this.sub =
       this.coreObservable.GetUsuarioLogadoImage()
         .subscribe((imageUser: string | undefined) => {
-          if (!HelperUtilsClass.StringIsEmpty(imageUser)){
+          if (!HelperUtilsClass.StringIsEmpty(imageUser)) {
             this.imageFileDefault.set(imageUser!);
           }
         });
@@ -76,23 +77,34 @@ export class MenuComponent implements OnDestroy {
     this.sub2 =
       this.coreObservable.GetClienteLogado()
         .subscribe((clienteLogado: boolean) => {
-          if (clienteLogado)
+          if (clienteLogado) {
             this.infoImageLic.set(ConfigSystemMapperClass.GetValueMapper(ConfigSystemMapperClass.LOGO_SISTEMA));
+          }
         });
   }
 
   protected ToLogOut(): void {
     environment.userErp.userConnected = false;
     this.coreObservable.SetUsuarioLogado(environment.userErp.userConnected);
+    this.coreObservable.SetClienteLogado(environment.userErp.userConnected);
   }
 
   protected NavigateToLicenca(): void {
     this.controller.NavigateTo('registro', environment.userErp.userConnected);
   }
 
+  protected NavigateToDashBoard(): void {
+    this.controller.NavigateTo('dashboard', environment.userErp.userConnected);
+  }
+
+  protected NavigateToHome(): void {
+    this.controller.NavigateTo('agenda', environment.userErp.userConnected);
+  }
+
   public ngOnDestroy(): void {
     this.sub.unsubscribe();
     this.sub2.unsubscribe();
+    this.controller.Finalize();
   }
 
 }

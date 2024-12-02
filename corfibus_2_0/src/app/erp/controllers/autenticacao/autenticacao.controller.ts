@@ -20,8 +20,8 @@ import { CoreObservableService } from "../../../core/core-observable.service";
 
 export class AutenticacaoController {
 
-  public titleForm = signal('Autenticação');
-  public version = signal(environment.userErp.erpVersion);
+  public titleForm = signal<string>('Autenticação');
+  public version = signal<string>(environment.userErp.erpVersion);
   public titleFormTrocaSenha = signal('Troca de Senha');
   public coreFrameWork: CoreFrameworkService = inject(CoreFrameworkService);
   public browser: CoreBrowserService = inject(CoreBrowserService);

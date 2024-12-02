@@ -198,13 +198,14 @@
   </div>
 </section>
 
-<ng-container *ngIf="!termoAceito">
-  <jrrb-save-cancel [positionOnBotton]="true" [captionSave]="'Aceitar'" (onCancel)="ToCancel()" (onSave)="ToSave()" />
-</ng-container>
-
-<ng-container *ngIf="termoAceito">
-  <div class="position-fixed bottom-0 w-100 text-center jrrb-bg-color-b3 p-2">
-    <jrrb-button [isIcon]="true" [iconClassFa]="'door-open text-secondary'" [toolTip]="'Fechar tela'"
-      (onClick)="ToCancel()" />
-  </div>
-</ng-container>
+@if(!termoAceito)
+{
+<jrrb-save-cancel [positionOnBotton]="true" [captionSave]="'Aceitar'" [classCaptionSave]="'text-white'"
+  (onCancel)="ToCancel()" (onSave)="ToSave()" />
+}
+@else {
+<div class="position-fixed bottom-0 w-100 text-center jrrb-bg-color-b3 p-2">
+  <jrrb-button [isIcon]="true" [iconClassFa]="'door-open text-secondary'" [toolTip]="'Fechar tela'"
+    (onClick)="ToCancel()" />
+</div>
+}

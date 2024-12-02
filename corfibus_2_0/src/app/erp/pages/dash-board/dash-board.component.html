@@ -1,1 +1,82 @@
-<p>dash-board works!</p>
+@if(controller.listResultDasboardVE())
+{
+<div class="jrrb-formcad-response">
+  <div class="{{controller.coreFramework.classRowCenter()}}">
+    <div class="{{controller.coreFramework.classCol9()}} border rounded shadow-sm py-3">
+      <div class="{{controller.coreFramework.classRowCenter()}}">
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">CNH Vencidas</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().cnh_vencidas}}</label>
+          </span>
+        </div>
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Veículos em Serviço</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().veiculos_servico}}</label>
+          </span>
+        </div>
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Veículos no Pátio</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().veiculos_patio}}</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="{{controller.coreFramework.classRowCenter()}}">
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Viagens Finalizadas</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().viagens_finalizadas}}</label>
+          </span>
+        </div>
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Viagens em Execução</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().viagens_ativas}}</label>
+          </span>
+        </div>
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Viagens da Semana</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().viagens_ativas_semana}}</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="{{controller.coreFramework.classRowCenter()}}">
+        <div class="{{controller.coreFramework.classCol3()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Viagens Aceitas no Mês</small>
+            <label class="{{classCardInfo()}}">{{controller.listResultDasboardVE().viagens_aceitas_mes}}</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="{{controller.coreFramework.classRowCenter()}}">
+        <div class="{{controller.coreFramework.classCol4()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Valores Totais nos últimos 7 dias</small>
+            <label
+              class="{{classCardInfo()}}">{{controller.listResultDasboardVE().totais_valores_semana[0].total_vendido_geral}}</label>
+          </span>
+        </div>
+        <div class="{{controller.coreFramework.classCol4()}}">
+          <span class="{{classCard()}}">
+            <small class="{{classCardLabel()}}">Valores Totais nos últimos 15 dias</small>
+            <label
+              class="{{classCardInfo()}}">{{controller.listResultDasboardVE().totais_valores_15[0].total_vendido_geral}}</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+<ng-template #noDashVE>
+  <div class="{{classTemplate()}}">
+    Não há dados para apresentação do dashboard
+  </div>
+</ng-template>

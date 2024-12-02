@@ -60,6 +60,8 @@
     <jrrb-button [isIcon]="true" [iconClassFa]="'bars jrrb-color-c fa-sm'" (onClick)="drawer.toggle()" />
 
     <div>
+      <jrrb-button [isIcon]="true" [iconClassFa]="'chart-line jrrb-color-c fa-sm'" (onClick)="NavigateToDashBoard()" />
+      <jrrb-button [isIcon]="true" [iconClassFa]="'home jrrb-color-c fa-sm'" (onClick)="NavigateToHome()" />
       <jrrb-button [matMenuTriggerFor]="menu" [isIcon]="true" [iconClassFa]="'ellipsis-vertical jrrb-color-c fa-sm'" />
       <mat-menu #menu="matMenu">
         <div class="container">
@@ -71,7 +73,7 @@
           <div class="d-flex flex-column gap-2 my-2">
             <span class="pt-1">
               <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'Nova Página'"
-                [iconClassFa]="'window-restore jrrb-color-a2 fa-lg jrrb-color-snow'" />
+                [iconClassFa]="'window-restore jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="controller.ToNewPage()" />
             </span>
             <span class="pt-1">
               <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'LogOut'"

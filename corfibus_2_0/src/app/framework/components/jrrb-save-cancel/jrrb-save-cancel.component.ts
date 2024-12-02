@@ -11,6 +11,8 @@ import { JrrbButtonComponent } from '../jrrb-button/jrrb-button.component';
 export class JrrbSaveCancelComponent {
   @Input() captionSave: string = 'Salvar';
   @Input() captionCancel: string = 'Cancelar';
+  @Input() classCaptionSave?: string;
+  @Input() classCaptionCancel?: string;
   @Input() toolTipSave?: string;
   @Input() toolTipCancel?: string;
   @Input() classButtonSave?: string;

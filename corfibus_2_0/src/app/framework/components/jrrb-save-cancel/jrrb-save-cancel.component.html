@@ -3,9 +3,9 @@
     {{isDisabled ? 'jrrb-disabled' : ''}}">
   <jrrb-button [toolTip]="toolTipSave" [isStroked]="true"
     [classButton]="classButtonSave ? classButtonSave : 'bg-success text-white'" [caption]="captionSave"
-    (onClick)="ToSave()">
+    [classCaption]="classCaptionSave" (onClick)="ToSave()">
   </jrrb-button>
-  <jrrb-button [toolTip]="toolTipCancel" [isStroked]="true"
+  <jrrb-button [toolTip]="toolTipCancel" [isStroked]="true" [classCaption]="classCaptionCancel"
     [classButton]="classButtonCancel ? classButtonCancel : 'bg-ligth text-primary'" [caption]="captionCancel"
     (onClick)="ToCancel()">
   </jrrb-button>

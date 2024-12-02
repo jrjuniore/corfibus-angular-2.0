@@ -17,6 +17,11 @@ export class CoreErpService {
   private nameItemSessStorage = signal('07112022071279');
   private idSetTimeOutDeslogAuto: any;
 
+  constructor() {
+    environment.userErp.erpVersion = '20241201-02ft0cm0';
+    environment.userErp.apiErp = environment.apiErp;
+  }
+
   public InicializarVars() {
     environment.userErp.userConnected = false;
     environment.userErp.iInfoEmpresa = null;
