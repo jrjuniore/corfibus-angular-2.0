@@ -261,6 +261,7 @@ export class MenuController {
   private destroy$ = new Subject<void>();
   public coreRouter: CoreRouterService = inject(CoreRouterService);
 
+  public pbClienteLogado = signal<boolean>(false);
   public haveAccessTabelas = signal<any>(null);
   public haveAccessCadastros = signal<any>(null);
   public haveAccessVeiculos = signal<any>(null);
@@ -274,7 +275,8 @@ export class MenuController {
     this.coreObservable.GetClienteLogado()
       .pipe(takeUntil(this.destroy$))
       .subscribe((clienteLogado: boolean) => {
-        if (clienteLogado) {
+        this.pbClienteLogado.set(clienteLogado);
+        if (this.pbClienteLogado()) {
           this.haveAccessTabelas.set(HaveAccess().tabelas);
           this.haveAccessCadastros.set(HaveAccess().cadastros);
           this.haveAccessVeiculos.set(HaveAccess().veiculos);

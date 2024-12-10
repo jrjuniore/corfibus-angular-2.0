@@ -22,29 +22,43 @@
 
     <div class="p-2 h-100 jrrb-bg-color-b4 d-flex flex-column">
       <mat-accordion class="d-flex flex-column gap-1">
+
+        @if(controller.pbClienteLogado() && controller.haveAccessTabelas().access){
         <span class="{{menu_p2()}}">
           <menu-administracao />
         </span>
+        }
 
+        @if(controller.pbClienteLogado() && controller.haveAccessVeiculos().access){
         <span class="{{menu_p2()}}">
           <menu-veiculos />
         </span>
+        }
 
+        @if(controller.pbClienteLogado() && controller.haveAccessVendas().access){
         <span class="{{menu_p2()}}">
           <menu-vendas />
         </span>
+        }
 
+        @if(controller.pbClienteLogado() && controller.haveAccessFinanceiro().access){
         <span class="{{menu_p2()}}">
           <menu-financeiro />
         </span>
+        }
 
+        @if(controller.pbClienteLogado() && controller.haveAccessReportCorFidence().access){
         <span class="{{menu_p2()}}">
           <menu-relatorios />
         </span>
+        }
 
+        @if(controller.pbClienteLogado() && controller.haveAccessSistema().access){
         <span class="{{menu_p2()}}">
           <menu-sistema />
         </span>
+        }
+
       </mat-accordion>
     </div>
   </mat-drawer>
@@ -67,13 +81,14 @@
         <div class="container">
           <span class="pt-1">
             <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'Licença'"
-              [iconClassFa]="'registered jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="NavigateToLicenca()"/>
+              [iconClassFa]="'registered jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="NavigateToLicenca()" />
           </span>
           <hr class="m-1">
           <div class="d-flex flex-column gap-2 my-2">
             <span class="pt-1">
               <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'Nova Página'"
-                [iconClassFa]="'window-restore jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="controller.ToNewPage()" />
+                [iconClassFa]="'window-restore jrrb-color-a2 fa-lg jrrb-color-snow'"
+                (onClick)="controller.ToNewPage()" />
             </span>
             <span class="pt-1">
               <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'LogOut'"

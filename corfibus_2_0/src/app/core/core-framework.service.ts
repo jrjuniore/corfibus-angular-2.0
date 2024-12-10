@@ -65,50 +65,48 @@ export class CoreFrameworkService {
 
   public bgForm = signal<string>('p-3 border shadow-sm jrrb-bg-color-ghostwhite');
 
-  public listFieldsNames = signal<string[]>(['nome', 'ativoStr', 'date_Create_Str', 'date_Alter_Str']);
-  public listFieldsCaption = signal<string[]>(['Tipo', 'Ativo', 'Data Inclusão', 'Data Alteração']);
-  public listFields2Caption = signal<string[]>(['Nome', 'Ativo', 'Data Inclusão', 'Data Alteração']);
-  public listFieldsNamesEntidade = signal<string[]>(["nome", "cpf_Cnpj", "ativoStr", "date_Create_Str", "date_Alter_Str"]);
-  public listFieldsCaptionsEntidade = signal<string[]>(["Nome", "CNPJ", "Ativo", "Data Inclusão", "Data Alteração"]);
+  public listFieldsNames: string[] = ['nome', 'ativoStr', 'date_Create_Str', 'date_Alter_Str'];
+  public listFieldsCaption: string[] = ['Tipo', 'Ativo', 'Data Inclusão', 'Data Alteração'];
+  public listFields2Caption: string[] = ['Nome', 'Ativo', 'Data Inclusão', 'Data Alteração'];
 
-  public logoReport = signal<string>('LOGO_RELATORIO');
-  public titleReportListagens = signal<string>('Relatórios Disponíveis');
-  public titleDetailScreen = signal<string>('Detalhes Cadastro');
-  public reportCaption = signal<string>('Relatório');
-  public reportPeriodo30DiasCaption = signal<string>('Período de 30 dias');
-  public reportPeriodo31DiasCaption = signal<string>('Período de 31 dias');
-  public reportCaptionRadioGroup = signal<string>('Selecione um período');
-  public fieldNameValue = signal<string>('value');
-  public fieldNameCaption = signal<string>('caption');
+  public logoReport: string = 'LOGO_RELATORIO';
+  public titleReportListagens: string = 'Relatórios Disponíveis';
+  public titleDetailScreen: string = 'Detalhes Cadastro';
+  public reportCaption: string = 'Relatório';
+  public reportPeriodo30DiasCaption: string = 'Período de 30 dias';
+  public reportPeriodo31DiasCaption: string = 'Período de 31 dias';
+  public reportCaptionRadioGroup: string = 'Selecione um período';
+  public fieldNameValue: string = 'value';
+  public fieldNameCaption: string = 'caption';
 
-  public width_sm = signal<string>(ConstUtilsClass.width_sm());
-  public width_md = signal<string>(ConstUtilsClass.width_md());
-  public width_md2 = signal<string>(ConstUtilsClass.width_md2());
-  public width_md3 = signal<string>(ConstUtilsClass.width_md3());
-  public width_lg = signal<string>(ConstUtilsClass.width_lg());
-  public width_lg2 = signal<string>(ConstUtilsClass.width_lg2());
-  public width_xl = signal<string>(ConstUtilsClass.width_xl());
-  public width_max = signal<string>(ConstUtilsClass.width_max());
+  public width_sm: string = ConstUtilsClass.width_sm();
+  public width_md: string = ConstUtilsClass.width_md();
+  public width_md2: string = ConstUtilsClass.width_md2();
+  public width_md3: string = ConstUtilsClass.width_md3();
+  public width_lg: string = ConstUtilsClass.width_lg();
+  public width_lg2: string = ConstUtilsClass.width_lg2();
+  public width_xl: string = ConstUtilsClass.width_xl();
+  public width_max: string = ConstUtilsClass.width_max();
 
-  public maskCpf = signal<string>(ConstUtilsClass.mask_cpf());
-  public maskPhone = signal<string>(ConstUtilsClass.mask_phone());
-  public maskCnpj = signal<string>(ConstUtilsClass.mask_cnpj());
-  public maskCep = signal<string>(ConstUtilsClass.mask_cep());
-  public maskAnoFab = signal<string>(ConstUtilsClass.mask_ano_fabricacao());
-  public maskAnoMod = signal<string>(ConstUtilsClass.mask_ano_modelo());
-  public maskRenavam = signal<string>(ConstUtilsClass.mask_renavam());
-  public maskNumberDoisDigitos = signal<string>(ConstUtilsClass.mask_number_dois_digitos());
-  public maskNumberSeteDigitos = signal<string>(ConstUtilsClass.mask_sete_digitos());
-  public maskNumberDoisDecimais = signal<string>(ConstUtilsClass.mask_money2());
-  public maskHoraMininuto = signal<string>(ConstUtilsClass.mask_time_short());
+  public maskCpf: string = ConstUtilsClass.mask_cpf();
+  public maskPhone: string = ConstUtilsClass.mask_phone();
+  public maskCnpj: string = ConstUtilsClass.mask_cnpj();
+  public maskCep: string = ConstUtilsClass.mask_cep();
+  public maskAnoFab: string = ConstUtilsClass.mask_ano_fabricacao();
+  public maskAnoMod: string = ConstUtilsClass.mask_ano_modelo();
+  public maskRenavam: string = ConstUtilsClass.mask_renavam();
+  public maskNumberDoisDigitos: string = ConstUtilsClass.mask_number_dois_digitos();
+  public maskNumberSeteDigitos: string = ConstUtilsClass.mask_sete_digitos();
+  public maskNumberDoisDecimais: string = ConstUtilsClass.mask_money2();
+  public maskHoraMininuto: string = ConstUtilsClass.mask_time_short();
 
-  public maskTimeShort = signal<string>(ConstUtilsClass.mask_time_short());
-  public horaMinima = signal<string>('08:00');
-  public horaMaxima = signal<string>('17:00');
-  public diaSemaInicial = signal<number>(1);
-  public diaSemaFinal = signal<number>(5);
+  public maskTimeShort: string = ConstUtilsClass.mask_time_short();
+  public horaMinima: string = '08:00';
+  public horaMaxima: string = '17:00';
+  public diaSemaInicial: number = 1;
+  public diaSemaFinal: number = 5;
 
-  public opcoesSimNaoList = signal<JrrbSelectTypeList[]>(ConstUtilsClass.opcao_SimNao());
+  public opcoesSimNaoList: JrrbSelectTypeList[] = ConstUtilsClass.opcao_SimNao();
 
   public AccessTablesPermissions = {
     NewAccessTablesPermissionsConfigType(pApiAccess: ApiRouteType,

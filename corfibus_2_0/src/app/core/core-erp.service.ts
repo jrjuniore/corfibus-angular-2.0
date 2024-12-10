@@ -18,7 +18,7 @@ export class CoreErpService {
   private idSetTimeOutDeslogAuto: any;
 
   constructor() {
-    environment.userErp.erpVersion = '20241201-02ft0cm0';
+    environment.userErp.erpVersion = '20250101-02ft0cm0';
     environment.userErp.apiErp = environment.apiErp;
   }
 
