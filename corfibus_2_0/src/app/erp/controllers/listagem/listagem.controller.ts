@@ -25,9 +25,10 @@ export class ListagemController<T> {
   private coreHttp: CoreHttpService = inject(CoreHttpService);
   private coreBrowser: CoreBrowserService = inject(CoreBrowserService);
 
-  constructor(private model: T, private titleForm: string, private titleFormCad: string, private apiContainer: IApiContainer,
-    private pTablePermissions: JrrbTablePermissionsType, private form: FormGroup, private formCad: any, private inicialModelValues: T,
-    private fieldKeyName: string, private listFieldsNames: string[], private listFieldsCaption: string[]  ) {
+  constructor(private model: T, private inicialModelValues: T, private titleForm: string, private titleFormCad: string, 
+    private apiContainer: IApiContainer, private pTablePermissions: JrrbTablePermissionsType, private form: FormGroup, 
+    private formCad: any, private formCadWidth: string, private fieldKeyName: string, private listFieldsNames: string[], 
+    private listFieldsCaption: string[]  ) {
 
     this.recordCommit = this.model;
     this.recordDeleted = this.model;
@@ -108,6 +109,8 @@ export class ListagemController<T> {
     this.subTitleFormCad = pIsAlter ? 'Alterando' : pIsVisualize ? 'Visualizando' : 'Inserindo';
   }
 
-  private OpenDialog(): void {}
+  private OpenDialog(): void {
+    this.coreHttp.DialogOpen(this.formCad, this.formCadWidth, this);
+  }
 
 }

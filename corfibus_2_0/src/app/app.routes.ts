@@ -26,4 +26,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('../app/erp/pages/licenca/licenca.component').then((m) => m.LicencaComponent),
   },
+  {
+    path: 'tabelas/gerais/tipos-documentos',
+    loadComponent: () =>
+      import('../app/erp/pages/tipos-documentos/tipos-documentos.component').then((m) => m.TiposDocumentosComponent),
+  }
 ];

@@ -100,7 +100,7 @@ export class AutenticacaoController {
   }
 
   public TesteGratuito(): void {
-    this.coreHttp.DialogOpen(TesteGratuitoComponent, this.coreFrameWork.width_md(), undefined);
+    this.coreHttp.DialogOpen(TesteGratuitoComponent, this.coreFrameWork.width_md, undefined);
   }
 
   private GetApiRouteAutenticar(pLoginModel: ILoginModel): ApiRouteType {
