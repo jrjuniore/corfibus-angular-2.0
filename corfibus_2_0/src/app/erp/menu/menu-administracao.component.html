@@ -10,7 +10,11 @@
 
   <menu-item [titleItem]="'Gerais'" [iconFa]=coreFrameWork.faTable()>
     <div class="d-flex flex-column">
-      <span class="{{coreFrameWork.itemMenu()}}">Tipos Documentos</span>
+
+      @if(tiposDocumentosHaveAcess){
+      <span class="{{coreFrameWork.itemMenu()}}" (click)="ToClick(tiposDocumentosRoute)">Tipos Documentos</span>
+      }
+
       <span class="{{coreFrameWork.itemMenu()}}">Tipos Contatos</span>
       <span class="{{coreFrameWork.itemMenu()}}">Bancos</span>
       <span class="{{coreFrameWork.itemMenu()}}">Cores</span>

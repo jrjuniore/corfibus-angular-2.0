@@ -23,9 +23,14 @@
     <div class="p-2 h-100 jrrb-bg-color-b4 d-flex flex-column">
       <mat-accordion class="d-flex flex-column gap-1">
 
-        @if(controller.pbClienteLogado() && controller.haveAccessTabelas().access){
+        @if(controller.pbClienteLogado() && controller.haveAccessTabelas().access &&
+        !this.controller.haveAccessTabelas().ocultar){
         <span class="{{menu_p2()}}">
-          <menu-administracao />
+          <menu-administracao
+            [tiposDocumentosHaveAcess]="this.controller.haveAccessTabelas().gerais.tiposDocumentos.access"
+            [tiposDocumentosRoute]="this.controller.haveAccessTabelas().gerais.tiposDocumentos.route" 
+            (onClickMenu)="NavigateTo($event); drawer.toggle();"
+            />
         </span>
         }
 
@@ -74,14 +79,14 @@
     <jrrb-button [isIcon]="true" [iconClassFa]="'bars jrrb-color-c fa-sm'" (onClick)="drawer.toggle()" />
 
     <div>
-      <jrrb-button [isIcon]="true" [iconClassFa]="'chart-line jrrb-color-c fa-sm'" (onClick)="NavigateToDashBoard()" />
-      <jrrb-button [isIcon]="true" [iconClassFa]="'home jrrb-color-c fa-sm'" (onClick)="NavigateToHome()" />
+      <jrrb-button [isIcon]="true" [iconClassFa]="'chart-line jrrb-color-c fa-sm'" (onClick)="NavigateTo('dashboard')" />
+      <jrrb-button [isIcon]="true" [iconClassFa]="'home jrrb-color-c fa-sm'" (onClick)="NavigateTo('agenda')" />
       <jrrb-button [matMenuTriggerFor]="menu" [isIcon]="true" [iconClassFa]="'ellipsis-vertical jrrb-color-c fa-sm'" />
       <mat-menu #menu="matMenu">
         <div class="container">
           <span class="pt-1">
             <jrrb-button [classButton]="'jrrb-color-snow'" [isLink]="true" [caption]="'Licença'"
-              [iconClassFa]="'registered jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="NavigateToLicenca()" />
+              [iconClassFa]="'registered jrrb-color-a2 fa-lg jrrb-color-snow'" (onClick)="NavigateTo('registro')" />
           </span>
           <hr class="m-1">
           <div class="d-flex flex-column gap-2 my-2">

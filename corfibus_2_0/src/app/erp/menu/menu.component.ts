@@ -17,6 +17,7 @@ import { HelperUtilsClass } from '../../share/class-utils/helper-utils.class';
 import { Subscription } from 'rxjs';
 import { ConfigSystemMapperClass } from '../pages/config-system/config-system.mapper';
 import { MenuController } from './menu.controller';
+import { LibraryUtilsClass } from '../../share/class-utils/library-utils.class';
 
 @Component({
   selector: 'menu',
@@ -89,16 +90,8 @@ export class MenuComponent implements OnDestroy {
     this.coreObservable.SetClienteLogado(environment.userErp.userConnected);
   }
 
-  protected NavigateToLicenca(): void {
-    this.controller.NavigateTo('registro', environment.userErp.userConnected);
-  }
-
-  protected NavigateToDashBoard(): void {
-    this.controller.NavigateTo('dashboard', environment.userErp.userConnected);
-  }
-
-  protected NavigateToHome(): void {
-    this.controller.NavigateTo('agenda', environment.userErp.userConnected);
+  protected NavigateTo(route: string): void {
+    this.controller.NavigateTo(route, environment.userErp.userConnected);
   }
 
   public ngOnDestroy(): void {
